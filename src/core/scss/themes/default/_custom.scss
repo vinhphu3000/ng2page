@@ -75,3 +75,13 @@
 .page-sidebar {
   box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
 }
+
+.page-container {
+  .page-content-wrapper{
+    .content {
+      &:only-child{
+        padding-bottom:72px;
+      }
+    }
+  }
+}
