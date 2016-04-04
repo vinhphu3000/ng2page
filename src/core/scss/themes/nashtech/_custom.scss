@@ -1,0 +1,77 @@
+// Theme overrides
+
+::selection, ::-moz-selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+.login-wrapper {
+  height: 100%;
+  background-color: $color-primary;
+  & > * {
+    height: 100%;
+  }
+  .bg-pic {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    & > img {
+      height: 100%;
+      opacity: 1.0;
+    }
+  }
+}
+
+.radio,
+.checkbox {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-left: 0px;
+  label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px !important;
+    margin-right: 15px;
+    font-size: 13px;
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 17px;
+      height: 17px;
+      margin-right: 10px;
+      position: absolute;
+      left: 0px;
+      background-color: $color-white;
+      border: 1px solid mix($color-primary, #fff, 90%);
+    }
+  }
+}
+
+/**
+*Please remove below lines if you don't want material design
+*/
+.panel {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.ar-1-1,
+.ar-2-1,
+.ar-1-2,
+.ar-3-2,
+.ar-2-3{
+
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  .panel {
+    box-shadow: none;
+  }
+}
+
+
+.header {
+  box-shadow: 0 2px 5px 0 rgba(100, 100, 1, 0.26);
+}
+
+.page-sidebar {
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
+}
