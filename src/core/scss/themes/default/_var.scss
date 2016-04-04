@@ -11,7 +11,7 @@ $assets-url: "../../../../assets";
 // --------------------------------------------------
 
 //Base  Color
-$color-master: #011627;// #575757;
+$color-master: #575757;// #575757;
 
 $color-white: #fff;
 $color-black: #000;
@@ -82,7 +82,7 @@ $panel-condensed-heading-min-height: 48px;
 
 //Forms
 $form-group-height: 54px;
-$form-control-border-color: fade($color-black, 7%);
+$form-control-border-color: fade($color-master-dark, 7%);
 
 //Dashboard
 $dashboard-background : $color-master-lightest;

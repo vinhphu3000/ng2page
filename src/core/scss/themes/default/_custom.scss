@@ -22,31 +22,6 @@
   }
 }
 
-.radio,
-.checkbox {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  padding-left: 0px;
-  label {
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    padding-left: 25px !important;
-    margin-right: 15px;
-    font-size: 13px;
-    &:before {
-      content: "";
-      display: inline-block;
-      width: 17px;
-      height: 17px;
-      margin-right: 10px;
-      position: absolute;
-      left: 0px;
-      background-color: $color-white;
-      border: 1px solid mix($color-primary, #fff, 90%);
-    }
-  }
-}
 
 /**
 *Please remove below lines if you don't want material design
