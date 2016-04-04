@@ -15,7 +15,7 @@ import {QuickView} from "../QuickView/QuickView";
 
 import {HVNCoreJSComponent} from "../script/corejs";
 import {DashboardPage} from "../../pages/dashboard/dashboard";
-
+import {FormExamplePage} from "../../pages/form-example/form-example";
 
 
 /*
@@ -38,7 +38,8 @@ import {Utility} from "../../common/utility";
  **/
 
 @RouteConfig([
-    {path: '/dashboard', name: 'Dashboard', component: DashboardPage, useAsDefault: true}
+    {path: '/dashboard', name: 'Dashboard', component: DashboardPage, useAsDefault: true},
+    {path: '/form-example', name: 'FormExample', component: FormExamplePage}
 
 ])
 

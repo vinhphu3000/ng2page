@@ -529,5 +529,5 @@
 }
 
 @function fade($color, $opacity){
-  @return fade-in($color, $opacity/100%)
+  @return opacify($color, $opacity/100%)
 }
