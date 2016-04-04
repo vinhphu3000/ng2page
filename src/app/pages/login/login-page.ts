@@ -72,7 +72,7 @@ export class LoginPage implements AfterViewInit, OnInit, OnDestroy {
                 if (result) {
                     console.log(result);
                     console.log(this._router);
-                    this._router.parent.navigate(['Dashboard']);
+                    this._router.parent.navigate(['Home']);
                 }
             },
             error => {

@@ -109,7 +109,7 @@
 
         //Get from JSON data and build
 
-        d3.json('http://NASHTECH.io/json/min_sales_chart.json', function(data) {
+        d3.json('http://tao.io/json/min_sales_chart.json', function(data) {
 
             // Widget-15
             nv.addGraph(function() {
@@ -238,7 +238,7 @@
 
         // Widget 13
         $('.widget-13-map').mapplic({
-            source: 'http://NASHTECH.io/json/dashboard-map.json',
+            source: 'http://tao.io/json/dashboard-map.json',
             height: 465,
             sidebar: false,
             minimap: false,
@@ -275,7 +275,7 @@
 
 
         //NVD3 Charts
-        d3.json('http://NASHTECH.io/json/charts.json', function(data) {
+        d3.json('http://tao.io/json/charts.json', function(data) {
 
             // line chart
             (function() {

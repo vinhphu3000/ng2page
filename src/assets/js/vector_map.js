@@ -12,7 +12,7 @@
 
         // Apply mapplic plugin 
         $('#mapplic').mapplic({
-            source: 'http://NASHTECH.io/json/countries.json',
+            source: 'http://tao.io/json/countries.json',
             height: '100%',
             search: false,
             sidebar: false,
@@ -31,7 +31,7 @@
         });
 
         // Load country list into select2
-        $.getJSON('http://NASHTECH.io/json/countries.json', function(data) {
+        $.getJSON('http://tao.io/json/countries.json', function(data) {
             var countryList = [];
 
             $.each(data.levels[0].locations, function(key, val) {

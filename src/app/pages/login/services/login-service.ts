@@ -39,7 +39,7 @@ export class LoginService {
     thing:any;
 
     constructor( public http:Http, public authHttp:AuthHttp) {
-        this.loggedIn = localStorage.getItem('auth_token');
+        this.loggedIn = localStorage.getItem('access_token');
     }
 
 
@@ -49,8 +49,8 @@ export class LoginService {
     }
 
     /*loggedIn() {
-        return tokenNotExpired();
-    }*/
+     return tokenNotExpired();
+     }*/
 
     isLoggedIn() {
         return this.loggedIn;
