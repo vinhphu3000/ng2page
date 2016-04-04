@@ -20,16 +20,16 @@ import 'rxjs/Rx';
 // Angular's router injectable services/bindings
 import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
-//Nashtech Utility
+//Utility
 import {Utility} from './common/utility';
 /*import {Layout} from './common/layout';*/
 
 import {LoginService} from './pages/login/services/login-service';
-import {NashtechAppComponent} from './components/app.component';
+import {MainAppComponent} from './components/app.component';
 
 enableProdMode();
 
-bootstrap(NashtechAppComponent, [
+bootstrap(MainAppComponent, [
     ROUTER_PROVIDERS,
     HTTP_PROVIDERS,
     provide(LocationStrategy, {useClass: HashLocationStrategy}),

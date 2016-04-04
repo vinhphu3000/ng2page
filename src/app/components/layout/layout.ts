@@ -27,7 +27,7 @@ import {Utility} from "../../common/utility";
 
 
 @Component({
-    selector: 'nashtech-app',
+    selector: 'main-app',
     templateUrl: './dist/app/components/layout/layout.html',
     directives: [ROUTER_DIRECTIVES, Header, Footer, Sidebar, Overlay, QuickView],
     styleUrls: [],

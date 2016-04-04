@@ -1,4 +1,4 @@
-import { Route, RouterLink, RouterOutlet } from 'angular2/router';
+import { Router, RouterLink, RouterOutlet } from 'angular2/router';
 import { Component, AfterViewInit, OnInit, OnDestroy, OnChanges } from 'angular2/core';
 
 import {Utility} from "../../common/utility";
@@ -15,7 +15,7 @@ import {Logo} from "../elements/organic/logo/logo";
 
 export class Header implements AfterViewInit, OnInit, OnDestroy, OnChanges {
 
-    constructor(public utility:Utility, private _loginService: LoginService){
+    constructor(public utility:Utility, private _loginService: LoginService, private _router: Router){
 
     }
 
@@ -37,6 +37,6 @@ export class Header implements AfterViewInit, OnInit, OnDestroy, OnChanges {
     logout(){
         console.log('log out');
         this._loginService.logout();
-
+        this._router.parent.navigate(['Login'])
     }
 }

@@ -21,7 +21,7 @@ import {} from '../pages/login/services/login-service';
 import {LoggedInRouterOutlet} from "../common/angular2-jwt";
 
 @Component({
-    selector: 'nashtech-app',
+    selector: 'main-app',
     templateUrl: './dist/app/components/app.html',
     directives: [ROUTER_DIRECTIVES, LoggedInRouterOutlet],
     styleUrls: [],
@@ -31,12 +31,12 @@ import {LoggedInRouterOutlet} from "../common/angular2-jwt";
 
 
 @RouteConfig([
-    {path: '/...', name: 'Dashboard', component: Layout, useAsDefault: true},
+    {path: '/...', name: 'Home', component: Layout, useAsDefault: true},
     {path: '/login', name: 'Login', component: LoginPage, useAsDefault: false}
 ])
 
 
-export class NashtechAppComponent implements AfterViewInit, OnInit, OnDestroy  {
+export class MainAppComponent implements AfterViewInit, OnInit, OnDestroy  {
 
     constructor(private _Utility:Utility) {
     }

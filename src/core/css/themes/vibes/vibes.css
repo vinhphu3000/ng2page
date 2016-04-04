@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------
-NashTech v1.1.0
+Tao v1.1.0
 Theme : Vibes
 Generated From SCSS
 [Table of contents]
@@ -1018,7 +1018,7 @@ body {
   .jumbotron h1 {
     font-size: 44px; }
 
-/* NashTech Image Icon Sent - Pixel Perfect
+/* Tao Image Icon Sent - Pixel Perfect
 ------------------------------------
 */
 .icon-set {
@@ -1056,7 +1056,7 @@ body {
   position: relative;
   overflow: auto; }
 
-/* NashTech Scroll bar
+/* Tao Scroll bar
 ------------------------------------
 */
 .scroll-wrapper > .scroll-element, .scroll-wrapper > .scroll-element div {
@@ -1708,7 +1708,7 @@ body {
   z-index: 600;
   margin: 0; }
 
-/* NashTech notification holder */
+/* Tao notification holder */
 .panel .pgn-wrapper {
   position: absolute;
   z-index: 602; }
@@ -2841,7 +2841,7 @@ Rounded buttons
 .open.dropdown-default .dropdown-toggle {
   box-shadow: none; }
 
-/* NashTech default dropdown */
+/* Tao default dropdown */
 .dropdown-default {
   display: inline-block; }
   .dropdown-default.open > .btn.dropdown-toggle {
@@ -3416,7 +3416,7 @@ Misc buttons
       right: 9px;
       top: 15px; }
 
-/* NashTech Notifications plugin
+/* Tao Notifications plugin
 --------------------------------------------------
 */
 body.menu-pin > .pgn-wrapper[data-position$='-left'],
@@ -3701,7 +3701,7 @@ body.menu-pin > .pgn-wrapper[data-position="bottom"] {
   100% {
     opacity: 1; } }
 
-/* NashTech Notification customizations */
+/* Tao Notification customizations */
 body > .pgn-wrapper[data-position="top"] {
   top: 60px;
   left: 70px; }
@@ -6070,7 +6070,7 @@ input.error:-webkit-autofill:focus,
 .has-error input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px #F9E9E9 inset !important; }
 
-/* NashTech SelectFx */
+/* Tao SelectFx */
 /* Default custom select styles */
 div.cs-select {
   display: inline-block;
@@ -6272,7 +6272,7 @@ div.cs-skin-slide::before {
 .cs-skin-slide .cs-selected span::after {
   content: ''; }
 
-/* NashTech Select  overriding */
+/* Tao Select  overriding */
 .form-group-default .cs-skin-slide > span {
   padding: 0 30px 0 0;
   height: 22px;
