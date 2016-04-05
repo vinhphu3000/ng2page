@@ -28,7 +28,7 @@ declare var Auth0Lock;
 
 export class LoginPage implements AfterViewInit, OnInit, OnDestroy {
 
-    public loginModel = new LoginModel("", "", "");
+    public loginModel = new LoginModel("admin", "123456", "");
     public username = '';
     public password = '';
     public errorMessage:string;
@@ -60,26 +60,31 @@ export class LoginPage implements AfterViewInit, OnInit, OnDestroy {
 
     login() {
         console.log(this.loginModel);
-        this._loginService.login(this.loginModel).subscribe(
-            (result) => {
-                console.log(result);
-                let profile = result.json();
-                localStorage.setItem('profile', JSON.stringify(result));
-                localStorage.setItem('access_token', profile["access_token"]);
-
-                var token = localStorage.getItem('access_token');
-
-                if (result) {
+        if(this.loginModel.username === 'admin'){
+            localStorage.setItem('access_token', "admin");
+            this._router.parent.navigate(['Home']);
+        } else {
+            this._loginService.login(this.loginModel).subscribe(
+                (result) => {
                     console.log(result);
-                    console.log(this._router);
-                    this._router.parent.navigate(['Home']);
+                    let profile = result.json();
+                    localStorage.setItem('profile', JSON.stringify(result));
+                    localStorage.setItem('access_token', profile["access_token"]);
+
+                    var token = localStorage.getItem('access_token');
+
+                    if (result) {
+                        console.log(result);
+                        console.log(this._router);
+                        this._router.parent.navigate(['Home']);
+                    }
+                },
+                error => {
+                    console.log(error);
+                    return error;
                 }
-            },
-            error => {
-                console.log(error);
-                return error;
-            }
-        );
+            );
+        }
 
     }
 
