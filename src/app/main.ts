@@ -22,9 +22,7 @@ import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2
 
 //Utility
 import {Utility} from './common/utility';
-/*import {Layout} from './common/layout';*/
 
-import {LoginService} from './pages/login/services/login-service';
 import {MainAppComponent} from './components/app.component';
 
 enableProdMode();
