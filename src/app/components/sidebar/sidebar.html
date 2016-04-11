@@ -26,90 +26,30 @@
         <!-- BEGIN SIDEBAR MENU ITEMS-->
         <ul class="menu-items">
             <li class="m-t-30 ">
-                <a href="index.html" class="detailed">
+                <a [routerLink]="['Home', 'Dashboard']" class="detailed">
                     <span class="title">Dashboard</span>
                     <span class="details">12 New Updates</span>
                 </a>
                 <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
             </li>
-            <li class="">
-                <a href="#" class="detailed">
-                    <span class="title">Widgets</span>
-                    <span class="details">22 items</span>
-                </a>
-                <span class="icon-thumbnail">W</span>
-            </li>
-            <li class="">
-                <a href="email.html" class="detailed">
-                    <span class="title">Email</span>
-                    <span class="details">234 New Emails</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-mail"></i></span>
-            </li>
-            <li class="">
-                <a href="social.html"><span class="title">Social</span></a>
-                <span class="icon-thumbnail"><i class="pg-social"></i></span>
-            </li>
             <li>
-                <a href="javascript:;"><span class="title">Calendar</span>
-                    <span class=" arrow"></span></a>
-                <span class="icon-thumbnail"><i class="pg-calender"></i></span>
+                <a href="javascript:;">
+                    <span class="title">Users</span>
+                    <span class=" arrow"></span>
+                </a>
+                <span class="icon-thumbnail">U</span>
                 <ul class="sub-menu">
                     <li class="">
-                        <a href="calendar.html">Basic</a>
-                        <span class="icon-thumbnail">c</span>
+                        <a [routerLink]="['Home', 'Users']">User list</a>
+                        <span class="icon-thumbnail">ul</span>
                     </li>
                     <li class="">
-                        <a href="calendar_lang.html">Languages</a>
-                        <span class="icon-thumbnail">L</span>
-                    </li>
-                    <li class="">
-                        <a href="calendar_month.html">Month</a>
-                        <span class="icon-thumbnail">M</span>
-                    </li>
-                    <li class="">
-                        <a href="calendar_lazy.html">Lazy load</a>
-                        <span class="icon-thumbnail">La</span>
+                        <a [routerLink]="['Home', 'User', {id: 0}]">Create user</a>
+                        <span class="icon-thumbnail">cu</span>
                     </li>
                 </ul>
             </li>
-            <li class="">
-                <a href="builder.html">
-                    <span class="title">Builder</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-layouts"></i></span>
-            </li>
-            <li>
-                <a href="javascript:;"><span class="title">Layouts</span>
-                    <span class=" arrow"></span></a>
-                <span class="icon-thumbnail"><i class="pg-layouts2"></i></span>
-                <ul class="sub-menu">
-                    <li class="">
-                        <a href="default_layout.html">Default</a>
-                        <span class="icon-thumbnail">dl</span>
-                    </li>
-                    <li class="">
-                        <a href="secondary_layout.html">Secondary</a>
-                        <span class="icon-thumbnail">sl</span>
-                    </li>
-                    <li class="">
-                        <a href="boxed_layout.html">Boxed</a>
-                        <span class="icon-thumbnail">bl</span>
-                    </li>
-                    <li class="">
-                        <a href="sidemenu_and_horizontal_menu.html">Horizontal Menu</a>
-                        <span class="icon-thumbnail">hm</span>
-                    </li>
-                    <li class="">
-                        <a href="rtl_layout.html">RTL</a>
-                        <span class="icon-thumbnail">rl</span>
-                    </li>
-                    <li class="">
-                        <a href="builder.html#tabContent">Columns</a>
-                        <span class="icon-thumbnail">cl</span>
-                    </li>
-                </ul>
-            </li>
+
             <li>
                 <a href="javascript:;"><span class="title">UI Elements</span>
                     <span class=" arrow"></span></a>
@@ -169,18 +109,18 @@
                 <span class="icon-thumbnail"><i class="pg-form"></i></span>
                 <ul class="sub-menu">
                     <li class="">
-                        <a href="form_elements.html">Form Elements</a>
+                        <a [routerLink]="['./FormExample']">Form Elements</a>
                         <span class="icon-thumbnail">fe</span>
                     </li>
                     <li class="">
-                        <a href="form_layouts.html">Form Layouts</a>
-                        <span class="icon-thumbnail">fl</span>
-                    </li>
-                    <li class="">
                         <a href="form_wizard.html">Form Wizard</a>
-                        <span class="icon-thumbnail">fw</span>
+                        <span class="icon-thumbnail">Q</span>
                     </li>
                 </ul>
+            </li>
+            <li class="">
+                <a [routerLink]="['./Wizard']"><span class="title">Wizard</span></a>
+                <span class="icon-thumbnail">W</span>
             </li>
             <li class="">
                 <a href="portlets.html">

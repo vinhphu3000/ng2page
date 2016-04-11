@@ -16,12 +16,13 @@ $color-master: #575757;// #575757;
 $color-white: #fff;
 $color-black: #000;
 
-$color-success: #0273D4;
-$color-complete : #41ead4;
+
+$color-success: #1dbb99;
+$color-complete : #37b0e9;
 $color-primary: #E21A2D;
 $color-warning: #f7cf5f;
-$color-danger: #ff0022;
-$color-info: #0273D4;;
+$color-danger: #f35958;
+$color-info: #1f3953;
 
 // Lighter colors
 $color-master-light:mix($color-master, #fff, 18%);
@@ -52,7 +53,7 @@ $color-menu-link-hover:#fff;
 
 // Body
 // --------------------------------------------------
-$body-background: $color-master-lightest;
+$body-background: $color-master-light;
 $body-color: $color-master;
 $body-font-family : $base-font-family;
 $body-font-size : 13px;
@@ -82,7 +83,7 @@ $panel-condensed-heading-min-height: 48px;
 
 //Forms
 $form-group-height: 54px;
-$form-control-border-color: fade($color-master-dark, 7%);
+$form-control-border-color: fade(mix($color-info, #fff, 28%), 7%);
 
 //Dashboard
 $dashboard-background : $color-master-lightest;

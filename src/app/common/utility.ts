@@ -1,6 +1,6 @@
 /**
  * Created by nguyenlet on 12/29/2015.
- * Harveynash
+ * 
  */
 
 import {Injectable} from 'angular2/core';

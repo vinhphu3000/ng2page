@@ -4,7 +4,7 @@
 // Angular 2
 
 /// <reference path="../../typings/browser/ambient/jquery/index.d.ts" />
-/// <reference path="../../typings/browser/ambient/es6-shim/index.d.ts" />
+/// <reference path="../../typings/browser/ambient/es6-promise/index.d.ts" />
 
 
 import {enableProdMode, provide} from 'angular2/core';
@@ -18,7 +18,7 @@ import {Http, HTTP_PROVIDERS} from 'angular2/http';
 import 'rxjs/Rx';
 
 // Angular's router injectable services/bindings
-import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
+import {ROUTER_PROVIDERS, LocationStrategy, PathLocationStrategy} from 'angular2/router';
 
 //Utility
 import {Utility} from './common/utility';
@@ -30,7 +30,7 @@ enableProdMode();
 bootstrap(MainAppComponent, [
     ROUTER_PROVIDERS,
     HTTP_PROVIDERS,
-    provide(LocationStrategy, {useClass: HashLocationStrategy}),
+    provide(LocationStrategy, {useClass: PathLocationStrategy}),
     provide(UrlResolver, {useClass: UrlResolver}),
     provide(AuthHttp, {
         useFactory: (http) => {

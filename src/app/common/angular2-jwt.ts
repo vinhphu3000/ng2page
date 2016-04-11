@@ -1,6 +1,6 @@
 /**
  * Created by nguyenlet on 4/1/2016.
- * Harveynash
+ * 
  */
 
 
@@ -261,6 +261,7 @@ export class LoggedInRouterOutlet extends RouterOutlet {
     }
 
     activate(instruction: ComponentInstruction) {
+        console.log(1);
         if (this._canActivate(instruction.urlPath)) {
             return super.activate(instruction);
         }

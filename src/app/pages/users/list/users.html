@@ -1,0 +1,34 @@
+<div class="content ">
+
+    <div class="container-fluid container-fixed-lg bg-white">
+        <!-- START PANEL -->
+        <div class="panel panel-transparent">
+            <div class="panel-heading">
+                <div class="panel-title">User List
+                </div>
+                <div class="export-options-container pull-right"></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped" id="tableWithExportOptions">
+                    <thead>
+                    <tr>
+                        <th>UserName</th>
+                        <th>PasswordHash</th>
+                        <th>SecurityStamp</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="#user of users" class="" data-id="{{user.id}}">
+                        <td><a [routerLink]="['../User', {id: user.id}]">{{user.username}}</a></td>
+                        <td>{{user.passwordHash}}</td>
+                        <td class="center">{{user.securityStamp}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- END PANEL -->
+    </div>
+
+</div>

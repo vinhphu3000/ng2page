@@ -11,9 +11,6 @@
 import {Component, AfterViewInit, OnInit, OnDestroy} from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
-
-/*import {LoggedInRouterOutlet} from "../common/logged-in-router-outlet";*/
-
 import {LoginPage} from "../pages/login/login-page";
 import {Utility} from "../common/utility";
 import {Layout} from "./layout/layout";
@@ -28,13 +25,10 @@ import {LoggedInRouterOutlet} from "../common/angular2-jwt";
     providers: []
 })
 
-
-
 @RouteConfig([
     {path: '/...', name: 'Home', component: Layout, useAsDefault: true},
     {path: '/login', name: 'Login', component: LoginPage, useAsDefault: false}
 ])
-
 
 export class MainAppComponent implements AfterViewInit, OnInit, OnDestroy  {
 

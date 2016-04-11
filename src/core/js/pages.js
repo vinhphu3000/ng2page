@@ -326,14 +326,17 @@
     * @requires select2.js
     */
     Pages.prototype.initSelect2Plugin = function() {
+        console.log(8);
         $.fn.select2 && $('[data-init-plugin="select2"]').each(function() {
+            console.log(1);
             $(this).select2({
+                placeholder: $(this).data('placeholder'),
                 minimumResultsForSearch: ($(this).attr('data-disable-search') == 'true' ? -1 : 1)
-            }).on('select2-opening', function() {
+            }).on('select2:opening', function() {
                 $.fn.scrollbar && $('.select2-results').scrollbar({
                     ignoreMobile: false
                 })
-            });
+            });;
         });
     }
     /** @function initScrollBarPlugin

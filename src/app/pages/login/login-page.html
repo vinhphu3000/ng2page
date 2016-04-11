@@ -26,12 +26,14 @@
                  data-src-retina="/dist/assets/img/logo_2x.png">
             <p class="p-t-35">Sign account</p>
             <!-- START Login Form -->
-            <form id="form-login" class="p-t-15" role="form" action="">
+            <form id="form-login" class="p-t-15 n2" (ngSubmit)="onSubmit()" #loginForm="ngForm">
                 <!-- START Form Control-->
                 <div class="form-group form-group-default">
                     <label>Login</label>
                     <div class="controls">
-                        <input [(ngModel)]="loginModel.username" type="text" name="username" placeholder="User Name" class="form-control" required>
+                        <input [(ngModel)]="loginModel.username"
+                               ngControl="username"  #username="ngForm"
+                               type="text" name="username" placeholder="User Name" class="form-control" required>
                     </div>
                 </div>
                 <!-- END Form Control-->
@@ -39,7 +41,9 @@
                 <div class="form-group form-group-default">
                     <label>Password</label>
                     <div class="controls">
-                        <input [(ngModel)]="loginModel.password" type="password" class="form-control" name="password" placeholder="Credentials" required>
+                        <input [(ngModel)]="loginModel.password"
+                               ngControl="password"  #password="ngForm"
+                               type="password" class="form-control" name="password" placeholder="Credentials" required>
                     </div>
                 </div>
                 <!-- START Form Control-->
@@ -55,7 +59,7 @@
                     </div>
                 </div>
                 <!-- END Form Control-->
-                <button class="btn btn-primary btn-cons m-t-10" type="submit" (click)="login()">Sign in</button>
+                <button class="btn btn-primary btn-cons m-t-10" type="submit" [disabled]="!loginForm.form.valid">Sign in</button>
             </form>
             <!--END Login Form-->
             <div class="pull-bottom sm-pull-bottom">

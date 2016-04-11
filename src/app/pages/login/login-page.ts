@@ -1,6 +1,6 @@
 /**
  * Created by nguyenlet on 3/28/2016.
- * Harveynash
+ * 
  */
 
 
@@ -8,7 +8,7 @@ import {provide, Component, AfterViewInit, OnInit, OnDestroy} from 'angular2/cor
 import {Router, RouterLink} from 'angular2/router';
 import {Utility} from "../../common/utility";
 import {Http} from 'angular2/http'
-
+import {NgForm}    from 'angular2/common';
 import {AuthHttp, AuthConfig, tokenNotExpired, JwtHelper} from '../../common/angular2-jwt';
 
 import {LoginModel} from '../login/models/login-model';
@@ -47,6 +47,7 @@ export class LoginPage implements AfterViewInit, OnInit, OnDestroy {
 
     ngAfterViewInit() {
         console.log('LoginPage - AfterViewInit');
+        $('#form-login')["validate"]();
     }
 
     ngOnInit() {
@@ -58,7 +59,8 @@ export class LoginPage implements AfterViewInit, OnInit, OnDestroy {
     }
 
 
-    login() {
+    onSubmit(e) {
+        console.log(e);
         console.log(this.loginModel);
         if(this.loginModel.username === 'admin'){
             localStorage.setItem('access_token', "admin");

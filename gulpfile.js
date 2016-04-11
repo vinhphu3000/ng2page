@@ -93,7 +93,7 @@ gulp.task('sasscore', function () {
 
     return gulp.src([PATHS.src.core + '/css/**/*.*']).pipe(gulp.dest(PATHS.dist.core + '/css'));
     //.pipe(notify({message: 'SCSS Compiled'}));
-    
+
 });
 gulp.task('sassassets', function () {
     gulp.src(PATHS.src.assets + '/scss/**/*.scss')
@@ -113,19 +113,19 @@ gulp.task('sassassets', function () {
 
         .pipe(gulp.dest(PATHS.src.assets + '/css'))
 
-        return gulp.src([PATHS.src.assets + '/css/*.*']).pipe(gulp.dest(PATHS.dist.assets + '/css'));
+    return gulp.src([PATHS.src.assets + '/css/*.*']).pipe(gulp.dest(PATHS.dist.assets + '/css'));
 
     //.pipe(notify({message: 'SCSS Compiled'}));
 
 });
-gulp.task('sasswatch', function() {
+gulp.task('sasswatch', function () {
     return gulp
     // Watch the input folder for change,
     // and run `sass` task when something happens
         .watch(PATHS.dist.core, ['sass'])
         // When there is a change,
         // log a message in the console
-        .on('change', function(event) {
+        .on('change', function (event) {
             console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         });
 });
@@ -149,8 +149,8 @@ gulp.task('copy', function () {
 });
 
 /*gulp.task('copyjs', function () {
-    return gulp.src(['./src/app/!**!/!*.js']).pipe(gulp.dest('./dist/app'));
-});*/
+ return gulp.src(['./src/app/!**!/!*.js']).pipe(gulp.dest('./dist/app'));
+ });*/
 
 gulp.task('copyassets', function () {
     return gulp.src([PATHS.src.assets + '/**/*']).pipe(gulp.dest(PATHS.dist.assets));
@@ -163,7 +163,6 @@ gulp.task('copycore', function () {
 gulp.task('template', function () {
     return gulp.src([PATHS.src.template]).pipe(gulp.dest(PATHS.dist.app));
 });
-
 
 
 //*** CSS & JS minify task
@@ -227,54 +226,29 @@ gulp.task("compile", function (callback) {
 
 });
 
-gulp.task("build", function (callback) {
-    return runSequence(
-        "compile",
-        'sasscore',
-        "copyassets",
-        "copycore",
-
-        function (error) {
-            if (error) {
-                console.log(error.message);
-            } else {
-                console.log("FINISHED build SUCCESSFULLY");
-            }
-            callback(error);
-        });
+gulp.task("build", ["compile", 'sasscore',
+    "copyassets",
+    "copycore"], function () {
+    console.log("FINISHED build SUCCESSFULLY");
+    done();
 });
 
 
-gulp.task("rebuild", function (callback) {
-    return runSequence(
-        "clean",
-        "build",
-        function (error) {
-            if (error) {
-                console.log(error.message);
-            } else {
-                console.log("FINISHED rebuild SUCCESSFULLY");
-            }
-            callback(error);
-        });
+gulp.task("rebuild", ['clean', 'build'], function () {
+
+    console.log("FINISHED rebuild SUCCESSFULLY");
+
 });
 
 
-gulp.task("deploy", function (callback) {
-    return runSequence(
-        "rebuild",
-        "minifycss",
-        "uglifyjs",
-        "sassdoc",
-        // "jsdoc",
-        function (error) {
-            if (error) {
-                console.log(error.message);
-            } else {
-                console.log("FINISHED deploy SUCCESSFULLY");
-            }
-            callback(error);
-        });
+gulp.task("deploy", ["rebuild",
+    "minifycss",
+    "uglifyjs",
+    "sassdoc"], function (callback) {
+
+    console.log("FINISHED deploy SUCCESSFULLY");
+
+
 });
 
 gulp.task('default', ['build']);

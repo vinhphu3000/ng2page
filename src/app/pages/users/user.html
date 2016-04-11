@@ -1,0 +1,68 @@
+<div class="content">
+    <div class="register-container full-height sm-p-t-30">
+        <div class="container-sm-height full-height">
+            <div class="row row-sm-height">
+                <div class="col-sm-12 col-sm-height col-middle">
+                    <h3>Common library makes it easy to enjoy what matters the most in your life</h3>
+                    <p>Create an user</p>
+                    <form id="form-register" class="p-t-15" role="form" (ngSubmit)="onSubmit()" #userForm="ngForm">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group form-group-default">
+                                    <label>First Name</label>
+                                    <input type="text" name="fname" placeholder="John" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group form-group-default">
+                                    <label>Last Names</label>
+                                    <input type="text" name="lname" placeholder="Smith" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group form-group-default">
+                                    <label>Pages User name</label>
+                                    <input type="text" name="uname"
+                                           placeholder="yourname.pages.com (this can be changed later)"
+                                           class="form-control"
+                                           required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group form-group-default">
+                                    <label>Password</label>
+                                    <input type="password" name="pass" placeholder="Minimum of 4 Charactors"
+                                           class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group form-group-default">
+                                    <label>Email</label>
+                                    <input type="email" name="email" placeholder="We will send loging details to you"
+                                           class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-t-10">
+                            <div class="col-md-6">
+                                <p>I agree to the <a href="#" class="text-info small">Pages Terms</a> and <a href="#"
+                                                                                                             class="text-info small">Privacy</a>.
+                                </p>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <a href="#" class="text-info small">Help? Contact Support</a>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-cons m-t-10" type="submit" type="submit" [disabled]="!userForm.form.valid">Create a new account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
