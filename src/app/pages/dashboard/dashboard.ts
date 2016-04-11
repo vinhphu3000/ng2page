@@ -1,11 +1,11 @@
 /**
  * Created by nguyenlet on 3/31/2016.
- * Harveynash
+ * 
  */
 
 
 
-import {provide, Component, AfterViewInit, OnInit, OnDestroy } from 'angular2/core';
+import {provide, Component, AfterViewInit, OnInit } from 'angular2/core';
 import {CanActivate} from 'angular2/router';
 
 import { tokenNotExpired} from "../../common/angular2-jwt";
@@ -21,7 +21,7 @@ import {Utility} from "../../common/utility";
 })
 /*@CanActivate(()=>tokenNotExpired(featureName))*/
 
-export class DashboardPage implements AfterViewInit, OnInit, OnDestroy {
+export class DashboardPage implements AfterViewInit, OnInit {
 
     public errorMessage:string;
     public ASSETS_PATH:string;
@@ -31,7 +31,13 @@ export class DashboardPage implements AfterViewInit, OnInit, OnDestroy {
     }
 
     ngAfterViewInit() {
-
+        $["Pages"].init();
+     
+        if(window["layout"] !== undefined) {
+            window["layout"]();
+        }
+        $(window).trigger('ngAfterViewInit');
+        console.log('FormExamplePage - AfterViewInit');
         console.log('DashboardPage - AfterViewInit');
         window["dashboard"]();
     }
@@ -41,9 +47,6 @@ export class DashboardPage implements AfterViewInit, OnInit, OnDestroy {
         console.log('DashboardPage - Init');
     }
 
-    ngOnDestroy() {
-        console.log('DashboardPage - Destroy');
-    }
 
 
 }

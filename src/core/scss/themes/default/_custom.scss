@@ -27,7 +27,7 @@
 *Please remove below lines if you don't want material design
 */
 .panel {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.26);
 }
 
 .ar-1-1,
@@ -36,7 +36,7 @@
 .ar-3-2,
 .ar-2-3{
 
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.26);
   .panel {
     box-shadow: none;
   }
@@ -59,4 +59,8 @@
       }
     }
   }
+}
+
+.page-container .page-content-wrapper .content.form-example-content {
+  padding-top: 83px;
 }

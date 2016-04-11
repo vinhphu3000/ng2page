@@ -1,6 +1,6 @@
 /**
  * Created by nguyenlet on 12/28/2015.
- * Harveynash
+ * 
  */
 
 import { Component, AfterViewInit, OnInit, OnDestroy  } from 'angular2/core';

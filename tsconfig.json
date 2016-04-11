@@ -1,5 +1,5 @@
 {
-  "version": "1.6.2",
+  "version": "1.8.9",
   "compilerOptions": {
     "outDir": "dist",
     "emitDecoratorMetadata": true,
@@ -11,7 +11,13 @@
     "sourceMap": true,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "noImplicitUseStrict": false,
+    "pretty": true,
+    "allowJs":true,
+    "listFiles": true,
+    "declaration": true,
+    "allowUnreachableCode": true
 
   },
   "exclude": [

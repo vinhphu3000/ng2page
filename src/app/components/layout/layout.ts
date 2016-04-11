@@ -1,6 +1,6 @@
 /**
  * Created by nguyenlet on 3/29/2016.
- * Harveynash
+ * 
  */
 
 import {Component, AfterViewInit, OnInit, OnDestroy} from 'angular2/core';
@@ -16,13 +16,9 @@ import {QuickView} from "../QuickView/QuickView";
 import {HVNCoreJSComponent} from "../script/corejs";
 import {DashboardPage} from "../../pages/dashboard/dashboard";
 import {FormExamplePage} from "../../pages/form-example/form-example";
-
-
-/*
-
-/*import {LoggedInRouterOutlet} from "../common/logged-in-router-outlet";*/
-/*import {LoginPage} from "../pages/login/login-page";*/
-
+import {WizardPage} from "../../pages/wizard/wizard";
+import {UserPage} from "../../pages/users/user";
+import {UsersPage} from "../../pages/users/list/users";
 import {Utility} from "../../common/utility";
 
 
@@ -39,8 +35,10 @@ import {Utility} from "../../common/utility";
 
 @RouteConfig([
     {path: '/dashboard', name: 'Dashboard', component: DashboardPage, useAsDefault: true},
-    {path: '/form-example', name: 'FormExample', component: FormExamplePage}
-
+    {path: '/form-example', name: 'FormExample', component: FormExamplePage},
+    {path: '/wizard', name: 'Wizard', component: WizardPage},
+    {path:'/users',      name: 'Users',   component: UsersPage},
+    {path:'/user/:id',      name: 'User',   component: UserPage}
 ])
 
 export class Layout implements AfterViewInit, OnInit, OnDestroy{
@@ -55,11 +53,7 @@ export class Layout implements AfterViewInit, OnInit, OnDestroy{
         console.log('Layout AfterViewInit');
 
         //TODO: use this likely jquery.on('ready')
-        $["Pages"].init();
-        if(window["layout"] !== undefined) {
-            window["layout"]();
-        }
-        $(window).trigger('ngAfterViewInit');
+
     }
 
     ngOnInit(){
@@ -67,6 +61,7 @@ export class Layout implements AfterViewInit, OnInit, OnDestroy{
     }
 
     ngOnDestroy(){
+
     }
 }
 

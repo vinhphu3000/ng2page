@@ -1,11 +1,11 @@
 /**
  * Created by nguyenlet on 3/30/2016.
- * Harveynash
+ * 
  */
 
 /**
  * Created by nguyenlet on 12/25/2015.
- * Harveynash
+ * 
  */
 import { Component, AfterViewInit, OnInit, OnDestroy, OnChanges } from 'angular2/core';
 import { RouteConfig, RouterLink, RouterOutlet } from 'angular2/router';

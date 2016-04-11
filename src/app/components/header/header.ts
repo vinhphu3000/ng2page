@@ -7,7 +7,7 @@ import {Logo} from "../elements/organic/logo/logo";
 
 @Component({
     selector: 'main-header',
-    directives: [RouterLink, RouterOutlet, Logo],
+    directives: [RouterLink, Logo],
     templateUrl:   './dist/app/components/header/header.html',
     providers: [LoginService]
 })
@@ -38,5 +38,6 @@ export class Header implements AfterViewInit, OnInit, OnDestroy, OnChanges {
         console.log('log out');
         this._loginService.logout();
         this._router.parent.navigate(['Login'])
+        //window.location.href = "/#/login";
     }
 }
