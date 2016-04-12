@@ -11,23 +11,23 @@ $assets-url: "../../../../assets";
 // --------------------------------------------------
 
 //Base  Color
-$color-master: #575757;// #575757;
+$color-master: #333;// #575757;
 
 $color-white: #fff;
 $color-black: #000;
 
 
-$color-success: #1dbb99;
-$color-complete : #37b0e9;
-$color-primary: #E21A2D;
-$color-warning: #f7cf5f;
-$color-danger: #f35958;
-$color-info: #1f3953;
+$color-success: #10cfbd;
+$color-complete : #4caf50;//#3f51b5;
+$color-primary: #6d5eac;//#9c27b0;
+$color-warning: #fbc02d;
+$color-danger: #f44336;
+$color-info: #03a9f4;
 
 // Lighter colors
 $color-master-light:mix($color-master, #fff, 18%);
 $color-master-lighter:mix($color-master, #fff, 14%);
-$color-master-lightest:mix($color-master, #fff, 9%);
+$color-master-lightest: mix($color-master, #fff, 5%);
 
 // Darker colors
 $color-master-dark:mix($color-master, #000, 50%);
@@ -47,7 +47,7 @@ $color-menu-dark :mix($color-menu, #000, 77%);
 $color-menu-darker :mix($color-menu, #000, 90%);
 
 //Generating Menu font color
-$color-menu-light :mix($color-menu, #fff, 60%);
+$color-menu-light :mix($color-menu, #fff, 25%);
 //Menu Font Color
 $color-menu-link-hover:#fff;
 

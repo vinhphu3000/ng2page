@@ -17,9 +17,13 @@ import {HVNCoreJSComponent} from "../script/corejs";
 import {DashboardPage} from "../../pages/dashboard/dashboard";
 import {FormExamplePage} from "../../pages/form-example/form-example";
 import {WizardPage} from "../../pages/wizard/wizard";
+import {TablePage} from "../../pages/table/table";
+import {ChartPage} from "../../pages/charts/chart";
+
 import {UserPage} from "../../pages/users/user";
 import {UsersPage} from "../../pages/users/list/users";
 import {Utility} from "../../common/utility";
+
 
 
 @Component({
@@ -37,6 +41,9 @@ import {Utility} from "../../common/utility";
     {path: '/dashboard', name: 'Dashboard', component: DashboardPage, useAsDefault: true},
     {path: '/form-example', name: 'FormExample', component: FormExamplePage},
     {path: '/wizard', name: 'Wizard', component: WizardPage},
+    {path: '/table', name: 'Table', component: TablePage},
+    {path: '/chart', name: 'Chart', component: ChartPage},
+
     {path:'/users',      name: 'Users',   component: UsersPage},
     {path:'/user/:id',      name: 'User',   component: UserPage}
 ])
