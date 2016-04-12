@@ -6573,9 +6573,9 @@ div.cs-skin-slide {
 
 .dataTables_wrapper .dataTables_paginate ul > li.active > a {
   font-weight: bold;
-  color: #fff;
-  background: #575757;
-  border-color: #575757;
+  /*color: #fff;*/
+  /*    background: $color-master;
+    border-color: $color-master;*/
   opacity: 1; }
 
 .export-options-container a {
