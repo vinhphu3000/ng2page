@@ -4,11 +4,11 @@
  */
 
 
-import {provide, Component, AfterViewInit, OnInit, OnDestroy} from 'angular2/core';
-import {Router, RouterLink} from 'angular2/router';
+import {provide, Component, AfterViewInit, OnInit, OnDestroy} from '@angular/core';
+import {Router, RouterLink} from '@angular/router-deprecated';
 import {Utility} from "../../common/utility";
-import {Http} from 'angular2/http'
-import {NgForm}    from 'angular2/common';
+import {Http} from '@angular/http'
+import {NgForm}    from '@angular/common';
 import {AuthHttp, AuthConfig, tokenNotExpired, JwtHelper} from '../../common/angular2-jwt';
 
 import {LoginModel} from '../login/models/login-model';

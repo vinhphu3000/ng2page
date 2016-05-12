@@ -71,7 +71,7 @@
     -webkit-font-feature-settings: "kern" 1;
     -moz-font-feature-settings: "kern" 1;
     margin-bottom: 0;
-    border: 1px solid $color-master-lighter;
+    border: 1px solid $color-master;
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
@@ -145,7 +145,7 @@ Alternate buttons
 .btn-default, .btn-default:focus{
     color: #5e5e5e;
     background-color: $color-white;
-    border-color: $color-master-lighter;
+    border-color: $color-master;
 }
 .btn-default {
   &.active, &:active, &.active:focus, &:active:focus, &:active:hover{

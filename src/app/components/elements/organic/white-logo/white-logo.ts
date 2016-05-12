@@ -3,8 +3,8 @@
  * 
  */
 
-import { Component, AfterViewInit, OnInit, OnDestroy, OnChanges } from 'angular2/core';
-import { RouteConfig, RouterLink, RouterOutlet } from 'angular2/router';
+import { Component, AfterViewInit, OnInit, OnDestroy, OnChanges } from '@angular/core';
+import { RouteConfig, RouterLink, RouterOutlet } from '@angular/router-deprecated';
 import {Utility} from '../../../../common/utility';
 
 @Component({

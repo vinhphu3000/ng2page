@@ -1,4 +1,7 @@
 {
+  "rulesDirectory": [
+    "node_modules/codelyzer"
+  ],
   "rules": {
     "class-name": true,
     "comment-format": [
@@ -15,7 +18,7 @@
     "label-undefined": true,
     "max-line-length": [
       false,
-      140
+      180
     ],
     "no-arg": true,
     "no-bitwise": true,
@@ -67,5 +70,6 @@
       "check-operator",
       "check-separator"
     ]
+
   }
 }

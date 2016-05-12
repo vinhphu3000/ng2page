@@ -2,8 +2,8 @@
  * Created by nguyenlet on 4/5/2016.
  */
 
-import {Component, AfterViewInit, OnInit} from "angular2/core";
-import {Router, RouterLink } from 'angular2/router';
+import {Component, AfterViewInit, OnInit} from "@angular/core";
+import {Router, RouterLink } from '@angular/router-deprecated';
 import {Utility} from "../../../common/utility";
 import {UserModel} from "../models/user-model";
 

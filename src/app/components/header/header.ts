@@ -1,5 +1,5 @@
-import { Router, RouterLink, RouterOutlet } from 'angular2/router';
-import { Component, AfterViewInit, OnInit, OnDestroy, OnChanges } from 'angular2/core';
+import { Router, RouterLink, RouterOutlet } from '@angular/router-deprecated';
+import { Component, AfterViewInit, OnInit, OnDestroy, OnChanges } from '@angular/core';
 
 import {Utility} from "../../common/utility";
 import {LoginService} from "../../pages/login/services/login-service";

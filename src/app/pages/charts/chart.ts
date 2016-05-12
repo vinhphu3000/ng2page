@@ -4,8 +4,9 @@
  */
 
 
-import {Component, AfterViewInit, OnInit} from "angular2/core";
+import {Component, AfterViewInit, OnInit} from "@angular/core";
 import {Utility} from "../../common/utility";
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'chart-page',
@@ -18,8 +19,9 @@ import {Utility} from "../../common/utility";
 export class ChartPage implements AfterViewInit, OnInit {
 
     public errorMessage:string;
+    public title = 'Chart';
 
-    constructor(public utility:Utility) {
+    constructor(public utility:Utility, private _titleService: Title) {
 
     }
 
@@ -27,7 +29,7 @@ export class ChartPage implements AfterViewInit, OnInit {
         $["Pages"].init();
         this._init();
         //noinspection TypeScriptUnresolvedFunction
-        layout();
+        //layout();
 
         $(window).trigger('ngAfterViewInit');
         console.log('ChartPage - AfterViewInit');
@@ -35,6 +37,7 @@ export class ChartPage implements AfterViewInit, OnInit {
     }
 
     ngOnInit() {
+        this._titleService.setTitle(this.title);
         console.log('ChartPage - Init');
     }
 
@@ -97,7 +100,7 @@ export class ChartPage implements AfterViewInit, OnInit {
                     random.removeData(seriesData);
                     random.addData(seriesData);
                     graph.update();
-                }, 3000);
+                }, 1000);
                 //noinspection TypeScriptUnresolvedVariable
                 d3.selectAll('#rickshaw-realtime_y_axis .tick.major line').attr('x2', '7');
                 //noinspection TypeScriptUnresolvedVariable
@@ -259,7 +262,7 @@ export class ChartPage implements AfterViewInit, OnInit {
 
             // Load chart data
             //noinspection TypeScriptUnresolvedVariable
-            d3.json('http://revox.io/json/charts.json', function (data) {
+            d3.json('/json/charts2.json', function (data) {
 
                 (function () {
                     // Renders a stacked area chart

@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 /*------------------------------------------------------------------
-Pages v2.1.2
+Pages v2.1.4
 Theme : Default
 Generated From LESS
 [Table of contents]
@@ -5919,6 +5919,14 @@ fieldset[disabled] .form-control {
   background: #f8f8f8;
   color: rgba(98, 98, 98, 0.23);
 }
+.form-control.transparent {
+  background-color: transparent;
+  border-color: transparent;
+}
+.form-control.transparent:focus {
+  background-color: transparent;
+  border-color: transparent;
+}
 /* Input Sizes
 --------------------------------------------------
 */
@@ -7636,6 +7644,41 @@ div.cs-skin-slide .cs-options ul li.cs-selected span {
 }
 .cs-skin-slide.cs-active .cs-options li:nth-child(11) {
   transition-delay: 0.55s;
+}
+.twitter-typeahead {
+  width: 100%;
+}
+.tt-menu {
+  width: 100%;
+  padding: 3px 10px 3px 3px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-top: 0;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+}
+.tt-suggestion {
+  color: #626262;
+  padding: 3px 7px 4px;
+}
+.tt-suggestion:hover {
+  cursor: pointer;
+  background: #f0f0f0;
+}
+.tt-suggestion.tt-cursor {
+  background: #f0f0f0;
+}
+.tt-suggestion p {
+  margin: 0;
+}
+.form-group-default.typehead {
+  overflow: inherit;
+}
+.form-group-default .tt-menu {
+  width: calc(100% + 24px);
+  margin: 4px -12px;
 }
 /* Dropzone for Angular */
 .dropzone[dropzone="dropzone"] input[type="file"] {

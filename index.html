@@ -7,7 +7,6 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Auth0 Lock script -->
-    <script src="//cdn.auth0.com/js/lock-9.0.js"></script>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"/>
     <meta name="theme-color" content="#E21A2D">
@@ -19,21 +18,15 @@
     <meta content="xyz framework" name="description"/>
     <meta content="xyz" name="author"/>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
     <!--<link rel="shortcut icon" href="favicon.ico"/>-->
     <!--  <link rel="apple-touch-icon" href="pages/ico/60.png">
       <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
       <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
       <link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">-->
 
-    <link rel="author" href="http://www.xyz.com/">
+    <link rel="author" href="http://www.nashtechglobal.com/">
 
-    <!-- BEGIN PAGE PROGRESS BAR SCRIPTS -->
-    <!--<script src=".//dist//dist/assets/global/plugins/pace/pace.js" type="text/javascript"></script>-->
-    <!-- END PROGRESS BAR SCRIPTS -->
-    <!-- BEGIN PROGRESS BAR STYLES -->
-    <!--<link href=".//dist//dist/assets/global/plugins/pace/themes/pace-theme-flash.css" rel="stylesheet" type="text/css" />-->
-    <!-- END PROGRESS BAR STYLES -->
 
     <!-- TODO: We will set up themes late-->
 
@@ -83,13 +76,18 @@
 <link href="/dist/assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="/dist/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css" rel="stylesheet" type="text/css" />
 <link href="/dist/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/dist/assets/plugins/jquery-dynatree/skin/ui.dynatree.css" rel="stylesheet" type="text/css" media="screen" />
 
+
+<link href="/dist/assets/plugins/ion-slider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/dist/assets/plugins/ion-slider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/dist/assets/plugins/jquery-nouislider/jquery.nouislider.css" rel="stylesheet" type="text/css" media="screen" />
 
 <link id="lazyload_placeholder">
 <!-- BEGIN Pages CSS-->
 <link href="/dist/core/css/pages-icons.css" rel="stylesheet" type="text/css">
 <link class="main-stylesheet" href="/dist/core/css/pages.css" rel="stylesheet" type="text/css"/>
-<link class="main-stylesheet" href="/dist/core/css/themes/default/default.css" rel="stylesheet" type="text/css"/>
+<!--<link class="main-stylesheet" href="/dist/core/css/themes/default/default.css" rel="stylesheet" type="text/css"/>-->
 <!--<link class="main-stylesheet" ng-href="{{app.layout.theme}}" rel="stylesheet" type="text/css" />-->
 <!--insert theme here -->
 </head>
@@ -153,10 +151,23 @@
 <script src="/dist/assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js" type="text/javascript"></script>
 <script type="text/javascript" src="/dist/assets/plugins/datatables-responsive/js/datatables.responsive.js"></script>
 <script type="text/javascript" src="/dist/assets/plugins/datatables-responsive/js/lodash.min.js"></script>
+<script src="/dist/assets/plugins/jquery-dynatree/jquery.dynatree.min.js" type="text/javascript"></script>
+
+<script src="/dist/assets/plugins/ion-slider/js/ion.rangeSlider.min.js" type="text/javascript"></script>
+<script src="/dist/assets/plugins/jquery-nouislider/jquery.nouislider.min.js" type="text/javascript"></script>
+<script src="/dist/assets/plugins/jquery-nouislider/jquery.liblink.js" type="text/javascript"></script>
+
+<script src="/dist/assets/plugins/interactjs/interact.min.js" type="text/javascript"></script>
+<script src="/dist/assets/plugins/moment/moment-with-locales.min.js"></script>
+
+<script src="/dist/assets/plugins/pages/pages.calendar.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnbYeLW6xYdrpSsUaFxDEtPxrbpGS1iKY&v=3.exp" type="text/javascript"></script>
+
 <!-- ANGULAR -->
 <!-- 1. Load libraries -->
 <!-- IE required polyfills, in this exact order -->
-<script src="/node_modules/es6-shim/es6-shim.min.js"></script>
+<!--<script src="/node_modules/es6-shim/es6-shim.min.js"></script>
 <script src="/node_modules/systemjs/dist/system-polyfills.js"></script>
 <script src="/node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
 
@@ -165,28 +176,42 @@
 <script src="/node_modules/rxjs/bundles/Rx.js"></script>
 <script src="/node_modules/angular2/bundles/angular2.dev.js"></script>
 <script src="/node_modules/angular2/bundles/router.dev.js"></script>
-<script src="node_modules/angular2/bundles/http.dev.js"></script>
+<script src="node_modules/angular2/bundles/http.dev.js"></script>-->
+
+
+<script src="node_modules/es6-shim/es6-shim.min.js"></script>
+
+
+<script src="node_modules/zone.js/dist/zone.js"></script>
+<script src="node_modules/reflect-metadata/Reflect.js"></script>
+<script src="node_modules/systemjs/dist/system.src.js"></script>
+
 <!-- 2. Configure SystemJS -->
+<script src="systemjs.config.js"></script>
+
 <script>
-    System.config({
+    System.import('app').catch(function(err){ console.error(err);  });
+</script>
+<script>
+   /* System.config({
         packages: {
             'dist/app': {
                 format: 'register',
                 defaultExtension: 'js'
             },
 
-            /* 'dist/core/js': {
+            /!* 'dist/core/js': {
              format: 'global',
              defaultExtension: 'js'
-             }*/
+             }*!/
         }
 
-      /*  map: {
+      /!*  map: {
             "angular2-jwt": "/dist/app/common/angular2-jwt.js"
-        }*/
+        }*!/
 
-    });
-    System.import('/dist/app/main').then(null, console.error.bind(console));
+    });*/
+    /*System.import('/dist/app/main').then(null, console.error.bind(console));*/
     /*System.import('/dist/core/js/pages.js').then(null, console.error.bind(console));*/
 
     // enable angular flag.
@@ -198,8 +223,7 @@
 <script src="/dist/core/js/pages.js"></script>
 <!-- END CORE TEMPLATE JS -->
 <!-- BEGIN PAGE LEVEL JS -->
-<script src="/dist/assets/js/dashboard.angular.js" type="text/javascript"></script>
-<script src="/dist/assets/js/scripts.angular.js" type="text/javascript"></script>
+<script src="/dist/assets/js/demo.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL JS -->
 
 

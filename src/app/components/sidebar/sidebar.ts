@@ -2,8 +2,9 @@
  * Created by nguyenlet on 12/25/2015.
  * 
  */
-import { Component, AfterViewInit, OnInit, OnDestroy, OnChanges } from 'angular2/core';
-import {Router, RouterLink } from 'angular2/router';
+import {Component, AfterViewInit, OnInit, OnDestroy, OnChanges} from '@angular/core';
+import {Router, RouterLink } from '@angular/router-deprecated';
+
 import {Utility} from '../../common/utility';
 import {Logo} from '../../components/elements/organic/logo/logo'
 import {WhiteLogo} from '../../components/elements/organic/white-logo/white-logo'

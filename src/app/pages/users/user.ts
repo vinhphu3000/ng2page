@@ -2,7 +2,7 @@
  * Created by nguyenlet on 4/5/2016.
  */
 
-import {Component, AfterViewInit, OnInit } from 'angular2/core';
+import {Component, AfterViewInit, OnInit } from '@angular/core';
 
 import {Utility} from "../../common/utility";
 

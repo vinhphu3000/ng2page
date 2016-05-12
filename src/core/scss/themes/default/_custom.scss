@@ -5,6 +5,8 @@
   color: $color-white;
 }
 
+
+
 .login-wrapper {
   height: 100%;
   background-color: $color-primary;
@@ -22,29 +24,35 @@
   }
 }
 
-
 /**
 *Please remove below lines if you don't want material design
 */
 .panel {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
 }
+
+.panel-group .panel{
+  border-radius: 0px;
+}
+
+.panel.panel-default {
+  border: 1px solid rgba(0, 0, 0, 0.08); }
 
 .ar-1-1,
 .ar-2-1,
 .ar-1-2,
 .ar-3-2,
-.ar-2-3{
+.ar-2-3 {
 
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   .panel {
     box-shadow: none;
   }
 }
 
-
 .header {
-  box-shadow: 0 2px 5px 0 rgba(100, 100, 1, 0.26);
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.2),0 1px 8px 0 rgba(0,0,0,.12);
 }
 
 .page-sidebar {
@@ -52,10 +60,10 @@
 }
 
 .page-container {
-  .page-content-wrapper{
+  .page-content-wrapper {
     .content {
-      &:only-child{
-        padding-bottom:72px;
+      &:only-child {
+        padding-bottom: 72px;
       }
     }
   }
@@ -67,4 +75,17 @@
 
 .dataTables_wrapper {
   overflow: hidden;
+}
+
+.btn {
+  will-change: transform, background-color, border;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1) !important;
+}
+
+.btn-default:hover, .dropdown-default:hover  {
+  border-color:fade(mix($color-master, #fff, 7%), 7%);
+}
+
+.card-raised {
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }

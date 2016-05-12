@@ -222,7 +222,7 @@
          * ============================================================ */
 
         // Load chart data
-        d3.json('http://tao.io/json/charts.json', function(data) {
+        d3.json('http://revox.io/json/charts.json', function(data) {
 
             (function() {
 

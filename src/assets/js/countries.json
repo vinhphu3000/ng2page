@@ -8,7 +8,7 @@
 		{
 			"id":"countries",
 			"title":"Countries",
-			"map":"http://tao.io/json/maps/pages-map.svg",
+			"map":"http://revox.io/json/maps/pages-map.svg",
 			"minimap":"assets/img/maps/us-small.jpg",
 			"locations":[
 			{

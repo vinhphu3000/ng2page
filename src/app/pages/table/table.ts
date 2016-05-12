@@ -3,7 +3,7 @@
  * Harveynash
  */
 
-import {Component, AfterViewInit, OnInit} from "angular2/core";
+import {Component, AfterViewInit, OnInit} from "@angular/core";
 import {Utility} from "../../common/utility";
 
 @Component({
@@ -26,7 +26,7 @@ export class TablePage implements AfterViewInit, OnInit {
         $["Pages"].init();
         this._init();
         //noinspection TypeScriptUnresolvedFunction
-        layout();
+        //layout();
 
         $(window).trigger('ngAfterViewInit');
         console.log('TablePage - AfterViewInit');
