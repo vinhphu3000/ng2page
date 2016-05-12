@@ -4,11 +4,11 @@
  */
 
 
-import {Http, HTTP_PROVIDERS, Headers, BaseRequestOptions, Request, RequestOptions, RequestOptionsArgs, RequestMethod, Response} from 'angular2/http';
+import {Http, HTTP_PROVIDERS, Headers, BaseRequestOptions, Request, RequestOptions, RequestOptionsArgs, RequestMethod, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 
-import {Injectable, Injector, ElementRef, DynamicComponentLoader, AttributeMetadata, Directive, Attribute } from 'angular2/core';
-import { Router, RouterOutlet, ComponentInstruction } from 'angular2/router';
+import {Injectable, Injector, ViewContainerRef, DynamicComponentLoader, AttributeMetadata, Directive, Attribute } from '@angular/core';
+import { Router, RouterOutlet, ComponentInstruction } from '@angular/router-deprecated';
 //import { UserService } from './user.service';
 
 
@@ -251,10 +251,10 @@ export class LoggedInRouterOutlet extends RouterOutlet {
 
 
     constructor(
-        _elementRef: ElementRef, _loader: DynamicComponentLoader,
+        _viewContainer: ViewContainerRef, _loader: DynamicComponentLoader,
         _parentRouter: Router, @Attribute('name') nameAttr: string
     ) {
-        super(_elementRef, _loader, _parentRouter, nameAttr);
+        super(_viewContainer, _loader, _parentRouter, nameAttr);
 
         this.parentRouter = _parentRouter;
         this.publicRoutes = ['login', 'signup'];

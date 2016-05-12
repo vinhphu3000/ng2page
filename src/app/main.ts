@@ -7,30 +7,30 @@
 /// <reference path="../../typings/browser/ambient/es6-promise/index.d.ts" />
 
 
-import {enableProdMode, provide} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import {enableProdMode, provide} from "@angular/core";
 
-// Add these symbols to override the `LocationStrategy`
-import {AuthHttp, AuthConfig} from './common/angular2-jwt';
+// While Angular supplies a Title service for setting the HTML document title
+// it doesn't include this service as part of the default Browser platform providers.
+// As such, if we want to inject it into the components within our application,
+// we have to explicitly provide the Angular service in our top component.
+import {bootstrap}    from '@angular/platform-browser-dynamic';
+import { Title } from '@angular/platform-browser';
+import {AuthHttp, AuthConfig} from "./common/angular2-jwt";
+import {UrlResolver} from "@angular/compiler";
+import {Http, HTTP_PROVIDERS} from "@angular/http";
+import "rxjs/Rx";
+import {ROUTER_PROVIDERS} from "@angular/router-deprecated";
 
-import {UrlResolver} from 'angular2/compiler';
-import {Http, HTTP_PROVIDERS} from 'angular2/http';
-import 'rxjs/Rx';
-
-// Angular's router injectable services/bindings
-import {ROUTER_PROVIDERS, LocationStrategy, PathLocationStrategy} from 'angular2/router';
-
-//Utility
-import {Utility} from './common/utility';
-
-import {MainAppComponent} from './components/app.component';
+/*import {PathLocationStrategy} from "@angular/platform/browser/location/path_location_strategy";
+import {LocationStrategy} from "@angular/src/platform/browser/location/location_strategy";*/
+import {Utility} from "./common/utility";
+import {MainAppComponent} from "./components/app.component";
 
 enableProdMode();
 
 bootstrap(MainAppComponent, [
     ROUTER_PROVIDERS,
     HTTP_PROVIDERS,
-    provide(LocationStrategy, {useClass: PathLocationStrategy}),
     provide(UrlResolver, {useClass: UrlResolver}),
     provide(AuthHttp, {
         useFactory: (http) => {
@@ -38,9 +38,15 @@ bootstrap(MainAppComponent, [
         },
         deps: [Http],
     }),
-    
-    Utility
-    /*Layout,
-     Demo*/]).catch(err =>console.error(err));
+    Utility,
+    Title,
+    ]).then(
+    () => window.console.info('Angular finished bootstrapping your application!'),
+    (error) => {
+        console.warn('Angular was not able to bootstrap your application.');
+        console.error(error);
+    }
+);
+
 
 

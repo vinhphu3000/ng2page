@@ -9,7 +9,7 @@ $(function() {
     /* Load widget data */
     var limit = 10;
     var skip = 0;
-    var widgetAPI = 'http://widgets.tao.io:8080/widget?limit=' + limit + '&skip=' + skip;
+    var widgetAPI = 'http://widgets.revox.io:8080/widget?limit=' + limit + '&skip=' + skip;
     var $widgetsContainer = $('.widgets-container');
     // quick search regex
     var qsRegex;

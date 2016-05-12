@@ -1,9 +1,7 @@
 var gulp = require('gulp');
 
-// sass compile
-var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
-var sassdoc = require('sassdoc');
+
 var cleanCSS = require('gulp-clean-css');
 
 var rename = require("gulp-rename");
@@ -11,8 +9,12 @@ var uglify = require("gulp-uglify");
 var rtlcss = require("gulp-rtlcss");
 var sourcemaps = require('gulp-sourcemaps');
 
+//var sass = require('gulp-sass');
+var less = require('gulp-less');
 
-var rimraf = require("gulp-rimraf");
+var del = require('del');
+var vinylPaths = require('vinyl-paths');
+
 var shell = require("gulp-shell");
 var runSequence = require("run-sequence");
 var replace = require("gulp-replace");
@@ -21,6 +23,7 @@ var concat = require("gulp-concat");
 var jsdoc = require('gulp-jsdoc3');
 var tslint = require("gulp-tslint");
 var tslintStylish = require('gulp-tslint-stylish');
+var styleguide = require('devbridge-styleguide');
 
 var PATHS = {
     src: {
@@ -35,14 +38,15 @@ var PATHS = {
         core: './dist/core',
         root: './dist'
     },
-    sassdocOptions: {
+    /*sassdocOptions: {
         dest: './dist/docs/sassdoc'
-    }
+    }*/
 };
 
 gulp.task('clean', function () {
-    return gulp.src('./dist', {read: false}) // much faster
-        .pipe(rimraf());
+    return gulp.src('./dist')
+            .pipe(vinylPaths(del));
+            //.pipe(gulp.dest('dist'));
 });
 
 gulp.task("lint", function () {
@@ -73,8 +77,8 @@ gulp.task('typescript', function () {
 
 
 //TASKS
-gulp.task('sasscore', function () {
-    gulp.src(PATHS.src.core + '/scss/**/*.scss')
+/*gulp.task('sasscore', function () {
+    gulp.src(PATHS.src.core + '/scss/!**!/!*.scss')
         .pipe(sourcemaps.init())
         .pipe(
             sass({
@@ -82,7 +86,26 @@ gulp.task('sasscore', function () {
                 errLogToConsole: true
 
             }).on('error', function (err) {
-                notify().write(err);
+                console.log(err);
+                this.emit('end');
+            })
+        )
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.write('.'))
+
+        .pipe(gulp.dest(PATHS.src.core + '/css/'));
+
+    return gulp.src([PATHS.src.core + '/css/!**!/!*.*']).pipe(gulp.dest(PATHS.dist.core + '/css'));
+    //.pipe(notify({message: 'SCSS Compiled'}));
+
+});*/
+
+gulp.task('lesscore', function () {
+    gulp.src(PATHS.src.core + '/less/**/pages.less')
+        .pipe(sourcemaps.init())
+        .pipe(
+            less().on('error', function (err) {
+                console.log(err);
                 this.emit('end');
             })
         )
@@ -95,15 +118,36 @@ gulp.task('sasscore', function () {
     //.pipe(notify({message: 'SCSS Compiled'}));
 
 });
-gulp.task('sassassets', function () {
-    gulp.src(PATHS.src.assets + '/scss/**/*.scss')
+
+/*gulp.task('sassassets', function () {
+    gulp.src(PATHS.src.assets + '/scss/!**!/!*.scss')
         .pipe(sourcemaps.init())
         .pipe(
             sass({
-                style: 'compressed',
-                errLogToConsole: true
+                 style: 'compressed',
+                 errLogToConsole: true
 
-            }).on('error', function (err) {
+                 }).on('error', function (err) {
+                notify().write(err);
+                this.emit('end');
+            })
+        )
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.write('.'))
+
+        .pipe(gulp.dest(PATHS.src.assets + '/css'))
+
+    return gulp.src([PATHS.src.assets + '/css/!*.*']).pipe(gulp.dest(PATHS.dist.assets + '/css'));
+
+    //.pipe(notify({message: 'SCSS Compiled'}));
+
+});*/
+
+gulp.task('lessassets', function () {
+    gulp.src(PATHS.src.assets + '/less/**/*.less')
+        .pipe(sourcemaps.init())
+        .pipe(
+            less().on('error', function (err) {
                 notify().write(err);
                 this.emit('end');
             })
@@ -118,7 +162,8 @@ gulp.task('sassassets', function () {
     //.pipe(notify({message: 'SCSS Compiled'}));
 
 });
-gulp.task('sasswatch', function () {
+
+/*gulp.task('sasswatch', function () {
     return gulp
     // Watch the input folder for change,
     // and run `sass` task when something happens
@@ -128,7 +173,7 @@ gulp.task('sasswatch', function () {
         .on('change', function (event) {
             console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         });
-});
+});*/
 
 
 gulp.task('jsdoc', function (cb) {
@@ -137,12 +182,14 @@ gulp.task('jsdoc', function (cb) {
         .pipe(jsdoc(config, cb));
 });
 
+/*
 gulp.task('sassdoc', function () {
     return gulp
         .src(PATHS.src.core + '/scss/pages.scss')
         .pipe(sassdoc(PATHS.sassdocOptions))
         .resume();
 });
+*/
 
 gulp.task('copy', function () {
     return gulp.src(['./src/**/*']).pipe(gulp.dest('./dist'));
@@ -190,7 +237,11 @@ gulp.task('uglifyjs', function () {
 });
 
 
-gulp.task('run', ['build'], function () {
+gulp.task('start-styleguide', function () {
+    styleguide.startServer();
+});
+
+/*gulp.task('run', ['build'], function () {
     var http = require('http');
     var connect = require('connect');
     var serveStatic = require('serve-static');
@@ -199,21 +250,21 @@ gulp.task('run', ['build'], function () {
     var port = 9000, app;
 
     gulp.watch(PATHS.src, ['ts2js']);
-    gulp.watch('./src/sass/**/*.scss', ['buildcss']);
-    gulp.watch('./src/**/*.html', ['copyhtml']);
+    gulp.watch('./src/sass/!**!/!*.scss', ['buildcss']);
+    gulp.watch('./src/!**!/!*.html', ['copyhtml']);
 
     app = connect().use(serveStatic(__dirname));
     http.createServer(app).listen(port, function () {
         open('http://localhost:' + port);
     });
-});
+});*/
 
 // entry point - run tasks in a sequence
 
 gulp.task("compile", function (callback) {
     return runSequence(
         "lint",
-        ["sassassets", "template"],
+        ["lessassets", "template"],
         "typescript",
         function (error) {
             if (error) {
@@ -226,7 +277,7 @@ gulp.task("compile", function (callback) {
 
 });
 
-gulp.task("build", ["compile", 'sasscore',
+gulp.task("build", ["compile", 'lesscore',
     "copyassets",
     "copycore"], function () {
     console.log("FINISHED build SUCCESSFULLY");
@@ -243,9 +294,7 @@ gulp.task("rebuild", ['clean', 'build'], function () {
 
 gulp.task("deploy", ["rebuild",
     "minifycss",
-    "uglifyjs",
-    "sassdoc"], function (callback) {
-
+    "uglifyjs"], function (callback) {
     console.log("FINISHED deploy SUCCESSFULLY");
 
 

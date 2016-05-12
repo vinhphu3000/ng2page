@@ -23,7 +23,7 @@
                 }
                 $.ajax({
                     type: "GET",
-                    url: "http://tao.io/json/events.json",
+                    url: "http://revox.io/json/events.json",
                     data: "",
                     success: function(data) {
                         $("#myCalendar").pagescalendar("setState","loaded");
@@ -88,7 +88,7 @@
                 $("#myCalendar").pagescalendar("setState","loading");
                 $.ajax({
                     type: "GET",
-                    url: "http://tao.io/json/events.json",
+                    url: "http://revox.io/json/events.json",
                     data: "",
                     success: function(data) {
                         $("#myCalendar").pagescalendar("setState","loaded");

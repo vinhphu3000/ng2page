@@ -3,7 +3,7 @@
  * 
  */
 
-import {Component, AfterViewInit, OnInit } from 'angular2/core';
+import {Component, AfterViewInit, OnInit } from '@angular/core';
 
 import {Utility} from "../../common/utility";
 
@@ -26,9 +26,9 @@ export class FormExamplePage implements AfterViewInit, OnInit {
     ngAfterViewInit() {
        $["Pages"].init();
         this._init();
-        if(window["layout"] !== undefined) {
+      /*  if(window["layout"] !== undefined) {
             window["layout"]();
-        }
+        }*/
         $(window).trigger('ngAfterViewInit');
         console.log('FormExamplePage - AfterViewInit');
 

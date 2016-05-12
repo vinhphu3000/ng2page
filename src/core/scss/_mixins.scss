@@ -98,139 +98,139 @@
 
 @mixin mask($arguments) {
   -webkit-mask: $arguments;
-          mask: $arguments;
+  mask: $arguments;
 }
 @mixin box_scale($scale) {
-    -webkit-transform: scale($scale);  
-      -ms-transform: scale($scale); 
-      -moz-transform: scale($scale); 
-          transform: scale($scale); 
+  -webkit-transform: scale($scale);
+  -ms-transform: scale($scale);
+  -moz-transform: scale($scale);
+  transform: scale($scale);
 }
 // Single side border-radius
 @mixin border-top-radius($radius) {
   border-top-right-radius: $radius;
-   border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
 }
 @mixin border-right-radius($radius) {
   border-bottom-right-radius: $radius;
-     border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
 }
 @mixin border-bottom-radius($radius) {
   border-bottom-right-radius: $radius;
-   border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
 }
 @mixin border-left-radius($radius) {
   border-bottom-left-radius: $radius;
-     border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
 }
 @mixin border-radius($radius) {
-	 border-radius: $radius;
-   -webkit-border-radius:$radius;
-   -moz-border-radius: $radius;
+  border-radius: $radius;
+  -webkit-border-radius:$radius;
+  -moz-border-radius: $radius;
 }
 // Drop shadows
 @mixin box-shadow($shadow) {
   -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
-          box-shadow: $shadow;
+  box-shadow: $shadow;
 }
 
 @mixin animation($properties) {
   -webkit-animation: $properties;
-     -moz-animation: $properties;
-       -o-animation: $properties;
-          animation: $properties;
+  -moz-animation: $properties;
+  -o-animation: $properties;
+  animation: $properties;
 }
 
 // Transitions
 @mixin transition($transition) {
   -webkit-transition: $transition;
-          transition: $transition;
+  transition: $transition;
 }
 @mixin transition-property($transition-property) {
   -webkit-transition-property: $transition-property;
-          transition-property: $transition-property;
+  transition-property: $transition-property;
 }
 @mixin transition-delay($transition-delay) {
   -webkit-transition-delay: $transition-delay;
-          transition-delay: $transition-delay;
+  transition-delay: $transition-delay;
 }
 @mixin transition-duration($transition-duration) {
   -webkit-transition-duration: $transition-duration;
-          transition-duration: $transition-duration;
+  transition-duration: $transition-duration;
 }
 @mixin transition-transform($transition) {
   -webkit-transition: -webkit-transform $transition;
-     -moz-transition: -moz-transform $transition;
-       -o-transition: -o-transform $transition;
-          transition: transform $transition;
+  -moz-transition: -moz-transform $transition;
+  -o-transition: -o-transform $transition;
+  transition: transform $transition;
 }
 
 // Transformations
 @mixin rotate($degrees) {
   -webkit-transform: rotate($degrees);
-      -ms-transform: rotate($degrees); // IE9+
-          transform: rotate($degrees);
+  -ms-transform: rotate($degrees); // IE9+
+  transform: rotate($degrees);
 }
 @mixin scale($ratio) {
   -webkit-transform: scale($ratio);
-      -ms-transform: scale($ratio); // IE9+
-          transform: scale($ratio);
+  -ms-transform: scale($ratio); // IE9+
+  transform: scale($ratio);
 }
 @mixin translate($x, $y) {
   -webkit-transform: translate($x, $y);
-      -ms-transform: translate($x, $y); // IE9+
-          transform: translate($x, $y);
+  -ms-transform: translate($x, $y); // IE9+
+  transform: translate($x, $y);
 }
 @mixin translateY($y) {
   -webkit-transform: translateY($y);
-      -ms-transform: translateY($y); // IE9+
-          transform: translateY($y);
+  -ms-transform: translateY($y); // IE9+
+  transform: translateY($y);
 }
 @mixin translateX($x) {
   -webkit-transform: translateX($x);
-      -ms-transform: translateX($x); // IE9+
-          transform: translateX($x);
+  -ms-transform: translateX($x); // IE9+
+  transform: translateX($x);
 }
 @mixin skew($x, $y) {
   -webkit-transform: skew($x, $y);
-      -ms-transform: skewX($x) skewY($y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
-          transform: skew($x, $y);
+  -ms-transform: skewX($x) skewY($y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
+  transform: skew($x, $y);
 }
 @mixin translate3d($x, $y, $z) {
   -webkit-transform: translate3d($x, $y, $z);
-          transform: translate3d($x, $y, $z);
-      -ms-transform:translate($x, $y);
+  transform: translate3d($x, $y, $z);
+  -ms-transform:translate($x, $y);
 }
 
 @mixin rotateX($degrees) {
   -webkit-transform: rotateX($degrees);
-      -ms-transform: rotateX($degrees); // IE9+
-          transform: rotateX($degrees);
+  -ms-transform: rotateX($degrees); // IE9+
+  transform: rotateX($degrees);
 }
 @mixin rotateY($degrees) {
   -webkit-transform: rotateY($degrees);
-      -ms-transform: rotateY($degrees); // IE9+
-          transform: rotateY($degrees);
+  -ms-transform: rotateY($degrees); // IE9+
+  transform: rotateY($degrees);
 }
 @mixin perspective($perspective) {
   -webkit-perspective: $perspective;
-     -moz-perspective: $perspective;
-          perspective: $perspective;
+  -moz-perspective: $perspective;
+  perspective: $perspective;
 }
 @mixin perspective-origin($perspective) {
   -webkit-perspective-origin: $perspective;
-     -moz-perspective-origin: $perspective;
-          perspective-origin: $perspective;
+  -moz-perspective-origin: $perspective;
+  perspective-origin: $perspective;
 }
 @mixin transform-origin($origin) {
   -webkit-transform-origin: $origin;
-     -moz-transform-origin: $origin;
-          transform-origin: $origin;
+  -moz-transform-origin: $origin;
+  transform-origin: $origin;
 }
 @mixin transform-style($style) {
   -webkit-transform-style: $style;
-    -moz-transform-style: $style;
-      transform-style: $style;
+  -moz-transform-style: $style;
+  transform-style: $style;
 }
 
 // Backface visibility
@@ -239,32 +239,32 @@
 // See git pull https://github.com/dannykeane/bootstrap.git backface-visibility for examples
 @mixin backface-visibility($visibility) {
   -webkit-backface-visibility: $visibility;
-     -moz-backface-visibility: $visibility;
-          backface-visibility: $visibility;
+  -moz-backface-visibility: $visibility;
+  backface-visibility: $visibility;
 }
 
 // Background clip
 @mixin background-clip($clip: border-box) {
   -webkit-background-clip: $clip;
-     -moz-background-clip: $clip;
-          background-clip: $clip;
+  -moz-background-clip: $clip;
+  background-clip: $clip;
 }
 
 // Box sizing
 @mixin box-sizing($boxmodel) {
   -webkit-box-sizing: $boxmodel;
-     -moz-box-sizing: $boxmodel;
-          box-sizing: $boxmodel;
+  -moz-box-sizing: $boxmodel;
+  box-sizing: $boxmodel;
 }
 
 // User select
 // For selecting text on the page
 @mixin user-select($select) {
   -webkit-user-select: $select;
-     -moz-user-select: $select;
-      -ms-user-select: $select; // IE10+
-       -o-user-select: $select;
-          user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select; // IE10+
+  -o-user-select: $select;
+  user-select: $select;
 }
 
 // Resize anything
@@ -276,21 +276,21 @@
 // CSS3 Content Columns
 @mixin content-columns($column-count, $column-gap: $grid-gutter-width) {
   -webkit-column-count: $column-count;
-     -moz-column-count: $column-count;
-          column-count: $column-count;
+  -moz-column-count: $column-count;
+  column-count: $column-count;
   -webkit-column-gap: $column-gap;
-     -moz-column-gap: $column-gap;
-          column-gap: $column-gap;
+  -moz-column-gap: $column-gap;
+  column-gap: $column-gap;
 }
 
 // Optional hyphenation
 @mixin hyphens($mode: auto) {
   word-wrap: break-word;
   -webkit-hyphens: $mode;
-     -moz-hyphens: $mode;
-      -ms-hyphens: $mode; // IE10+
-       -o-hyphens: $mode;
-          hyphens: $mode;
+  -moz-hyphens: $mode;
+  -ms-hyphens: $mode; // IE10+
+  -o-hyphens: $mode;
+  hyphens: $mode;
 }
 
 // Opacity
@@ -422,7 +422,7 @@
 }
 
 @mixin responsive-invisibility() {
-    &,
+  &,
   tr&,
   th&,
   td& { display: none !important; }

@@ -19,11 +19,11 @@
  * If the backend process is successful, we store the authentication token in LocalStorage and save the state in the service to the loggedIn property.
  */
 
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 
 import {Observable}     from 'rxjs/Observable';
 import {LoginModel} from '../models/login-model';
-import {Http,  Response, Headers} from 'angular2/http'
+import {Http,  Response, Headers} from '@angular/http'
 
 import {AuthHttp, AuthConfig, tokenNotExpired, JwtHelper} from '../../../common/angular2-jwt';
 declare var Auth0Lock;
@@ -59,11 +59,12 @@ export class LoginService {
     login(loginModel: LoginModel) {
         this._loginModel =  loginModel;
         let credentials =`grant_type=password&username=${this._loginModel.username}&password=${this._loginModel.password}`;
-
+        
         let headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-        let result =  this.authHttp.post(this.loginServiceUrl + '/token', credentials, { headers: headers} );
+        let result =  this.authHttp.post(this.loginServiceUrl + '/token', 
+                                         credentials, { headers: headers} );
 
 
 
@@ -72,12 +73,8 @@ export class LoginService {
     }
 
     getThing() {
-        this.http.get('http://localhost:3001/ping')
-            .subscribe(
-                data => console.log(data.json()),
-                err => console.log(err),
-                () => console.log('Complete')
-            );
+        return this.http.get('http://localhost:3001/ping')
+            
     }
 
 

@@ -27,7 +27,7 @@ $color-info: #03a9f4;
 // Lighter colors
 $color-master-light:mix($color-master, #fff, 18%);
 $color-master-lighter:mix($color-master, #fff, 14%);
-$color-master-lightest: mix($color-master, #fff, 5%);
+$color-master-lightest: mix($color-master, #fff, 3%);
 
 // Darker colors
 $color-master-dark:mix($color-master, #000, 50%);
@@ -47,7 +47,7 @@ $color-menu-dark :mix($color-menu, #000, 77%);
 $color-menu-darker :mix($color-menu, #000, 90%);
 
 //Generating Menu font color
-$color-menu-light :mix($color-menu, #fff, 25%);
+$color-menu-light :mix($color-menu, #fff, 28%);
 //Menu Font Color
 $color-menu-link-hover:#fff;
 
@@ -83,7 +83,7 @@ $panel-condensed-heading-min-height: 48px;
 
 //Forms
 $form-group-height: 54px;
-$form-control-border-color: fade(mix($color-info, #fff, 28%), 7%);
+$form-control-border-color: fade(mix($color-master, #fff, 28%), 7%);
 
 //Dashboard
 $dashboard-background : $color-master-lightest;

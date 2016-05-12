@@ -4,7 +4,7 @@
     <div class="sidebar-overlay-slide from-top" id="appMenu">
         <div class="row">
             <div class="col-xs-6 m-t-20 no-padding">
-                <a href="#" class="p-l-10"><img src="{{utility.ASSET_FOLDER}}/img/demo/add_more.svg" alt="socail">
+                <a href="javascript:void(0);" class="p-l-10"><img src="{{utility.ASSET_FOLDER}}/img/demo/add_more.svg" alt="socail">
                 </a>
             </div>
         </div>
@@ -49,56 +49,40 @@
                     </li>
                 </ul>
             </li>
-
+            <li>
+                <a [routerLink]="['Home', 'Calendar']"><span class="title">Calendar</span></a>
+                <span class="icon-thumbnail"><i class="pg-calender"></i></span>
+            </li>
             <li>
                 <a href="javascript:;"><span class="title">UI Elements</span>
                     <span class=" arrow"></span></a>
                 <span class="icon-thumbnail">Ui</span>
                 <ul class="sub-menu">
                     <li class="">
-                        <a href="color.html">Color</a>
-                        <span class="icon-thumbnail">c</span>
-                    </li>
-                    <li class="">
-                        <a href="typography.html">Typography</a>
-                        <span class="icon-thumbnail">t</span>
-                    </li>
-                    <li class="">
-                        <a href="icons.html">Icons</a>
-                        <span class="icon-thumbnail">i</span>
-                    </li>
-                    <li class="">
-                        <a href="buttons.html">Buttons</a>
+                        <a [routerLink]="['./Button']">Buttons</a>
                         <span class="icon-thumbnail">b</span>
                     </li>
                     <li class="">
-                        <a href="notifications.html">Notifications</a>
+                        <a [routerLink]="['./Notification']">Notifications</a>
                         <span class="icon-thumbnail">n</span>
                     </li>
                     <li class="">
-                        <a href="modals.html">Modals</a>
+                        <a [routerLink]="['./Modal']">Modals</a>
                         <span class="icon-thumbnail">m</span>
                     </li>
                     <li class="">
-                        <a href="progress.html">Progress &amp; Activity</a>
-                        <span class="icon-thumbnail">pa</span>
-                    </li>
-                    <li class="">
-                        <a href="tabs_accordian.html">Tabs &amp; Accordions</a>
+                        <a [routerLink]="['./TabAccordion']">Tabs &amp; Accordions</a>
                         <span class="icon-thumbnail">ta</span>
                     </li>
                     <li class="">
-                        <a href="sliders.html">Sliders</a>
+                        <a [routerLink]="['./Slider']">Sliders</a>
                         <span class="icon-thumbnail">s</span>
                     </li>
                     <li class="">
-                        <a href="tree_view.html">Tree View</a>
+                        <a [routerLink]="['./TreeView']">Tree View</a>
                         <span class="icon-thumbnail">tv</span>
                     </li>
-                    <li class="">
-                        <a href="nestables.html">Nestable</a>
-                        <span class="icon-thumbnail">ns</span>
-                    </li>
+
                 </ul>
             </li>
             <li>
@@ -119,8 +103,8 @@
                 <span class="icon-thumbnail">W</span>
             </li>
             <li class="">
-                <a href="portlets.html">
-                    <span class="title">Portlets</span>
+                <a [routerLink]="['./Portlet']">
+                    <span class="title">Portlet</span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-grid"></i></span>
             </li>
@@ -131,7 +115,7 @@
                 <span class="icon-thumbnail"><i class="pg-tables"></i></span>
             </li>
             <li class="">
-                <a [routerLink]="['./Chart']"><span class="title">Charts</span></a>
+                <a [routerLink]="['./Chart']"><span class="title">Chart</span></a>
                 <span class="icon-thumbnail"><i class="pg-charts"></i></span>
             </li>
             <li>
@@ -140,7 +124,7 @@
                 <span class="icon-thumbnail"><i class="pg-map"></i></span>
                 <ul class="sub-menu">
                     <li class="">
-                        <a href="google_map.html">Google Maps</a>
+                        <a [routerLink]="['./GoogleMap']">Google Maps</a>
                         <span class="icon-thumbnail">gm</span>
                     </li>
                     <li class="">
@@ -149,11 +133,13 @@
                     </li>
                 </ul>
             </li>
-            <li class="">
-                <a href="charts.html"><span class="title">Charts</span></a>
-                <span class="icon-thumbnail"><i class="pg-charts"></i></span>
-            </li>
             <li>
+                <a [routerLink]="['./FormBuilder']">
+                    <span class="title">Builder</span>
+                </a>
+                <span class="icon-thumbnail"><i class="pg-layouts"></i></span>
+            </li>
+            <!--<li>
                 <a href="javascript:;"><span class="title">Extra</span>
                     <span class=" arrow"></span></a>
                 <span class="icon-thumbnail"><i class="pg-bag"></i></span>
@@ -179,7 +165,7 @@
                         <span class="icon-thumbnail">t</span>
                     </li>
                 </ul>
-            </li>
+            </li>-->
             <li class="">
                 <a href="javascript:;"><span class="title">Menu Levels</span>
                     <span class="arrow"></span></a>

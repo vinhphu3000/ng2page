@@ -2,7 +2,7 @@
     'use strict';
 
     /**
-    * Pages.
+     * Pages.
      * @constructor
      * @property {string}  VERSION      - Build Version.
      * @property {string}  AUTHOR       - Author.
@@ -11,9 +11,9 @@
      * @property {object}  $body - Cache Body.
      */
     var Pages = function() {
-        this.VERSION = "0.2.1.2";
-        this.AUTHOR = "";
-        this.SUPPORT = "";
+        this.VERSION = "2.1.2";
+        this.AUTHOR = "Revox";
+        this.SUPPORT = "support@revox.io";
 
         this.pageScrollElement = 'html, body';
         this.$body = $('body');
@@ -23,9 +23,9 @@
     }
 
     /** @function setUserOS
-    * @description SET User Operating System eg: mac,windows,etc
-    * @returns {string} - Appends OSName to Pages.$body
-    */
+     * @description SET User Operating System eg: mac,windows,etc
+     * @returns {string} - Appends OSName to Pages.$body
+     */
     Pages.prototype.setUserOS = function() {
         var OSName = "";
         if (navigator.appVersion.indexOf("Win") != -1) OSName = "windows";
@@ -37,9 +37,9 @@
     }
 
     /** @function setUserAgent
-    * @description SET User Device Name to mobile | desktop
-    * @returns {string} - Appends Device to Pages.$body
-    */
+     * @description SET User Device Name to mobile | desktop
+     * @returns {string} - Appends Device to Pages.$body
+     */
     Pages.prototype.setUserAgent = function() {
         if (navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i)) {
             this.$body.addClass('mobile');
@@ -52,52 +52,52 @@
     }
 
     /** @function isVisibleXs
-    * @description Checks if the screen size is XS - Extra Small i.e below W480px
-    * @returns {$Element} - Appends $('#pg-visible-xs') to Body
-    */
+     * @description Checks if the screen size is XS - Extra Small i.e below W480px
+     * @returns {$Element} - Appends $('#pg-visible-xs') to Body
+     */
     Pages.prototype.isVisibleXs = function() {
         (!$('#pg-visible-xs').length) && this.$body.append('<div id="pg-visible-xs" class="visible-xs" />');
         return $('#pg-visible-xs').is(':visible');
     }
 
     /** @function isVisibleSm
-    * @description Checks if the screen size is SM - Small Screen i.e Above W480px
-    * @returns {$Element} - Appends $('#pg-visible-sm') to Body
-    */
+     * @description Checks if the screen size is SM - Small Screen i.e Above W480px
+     * @returns {$Element} - Appends $('#pg-visible-sm') to Body
+     */
     Pages.prototype.isVisibleSm = function() {
         (!$('#pg-visible-sm').length) && this.$body.append('<div id="pg-visible-sm" class="visible-sm" />');
         return $('#pg-visible-sm').is(':visible');
     }
 
     /** @function isVisibleMd
-    * @description Checks if the screen size is MD - Medium Screen i.e Above W1024px
-    * @returns {$Element} - Appends $('#pg-visible-md') to Body
-    */
+     * @description Checks if the screen size is MD - Medium Screen i.e Above W1024px
+     * @returns {$Element} - Appends $('#pg-visible-md') to Body
+     */
     Pages.prototype.isVisibleMd = function() {
         (!$('#pg-visible-md').length) && this.$body.append('<div id="pg-visible-md" class="visible-md" />');
         return $('#pg-visible-md').is(':visible');
     }
 
     /** @function isVisibleLg
-    * @description Checks if the screen size is LG - Large Screen i.e Above W1200px
-    * @returns {$Element} - Appends $('#pg-visible-lg') to Body
-    */
+     * @description Checks if the screen size is LG - Large Screen i.e Above W1200px
+     * @returns {$Element} - Appends $('#pg-visible-lg') to Body
+     */
     Pages.prototype.isVisibleLg = function() {
         (!$('#pg-visible-lg').length) && this.$body.append('<div id="pg-visible-lg" class="visible-lg" />');
         return $('#pg-visible-lg').is(':visible');
     }
 
     /** @function getUserAgent
-    * @description Get Current User Agent.
-    * @returns {string} - mobile | desktop
-    */
+     * @description Get Current User Agent.
+     * @returns {string} - mobile | desktop
+     */
     Pages.prototype.getUserAgent = function() {
         return $('body').hasClass('mobile') ? "mobile" : "desktop";
     }
 
     /** @function setFullScreen
-    * @description Make Browser fullscreen.
-    */
+     * @description Make Browser fullscreen.
+     */
     Pages.prototype.setFullScreen = function(element) {
         // Supports most browsers and their versions.
         var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullscreen;
@@ -113,11 +113,11 @@
     }
 
     /** @function getColor
-    * @description Get Color from CSS 
-    * @param {string} color - pages color class eg: primary,master,master-light etc.
-    * @param {int} opacity
-    * @returns {rgba}
-    */
+     * @description Get Color from CSS
+     * @param {string} color - pages color class eg: primary,master,master-light etc.
+     * @param {int} opacity
+     * @returns {rgba}
+     */
     Pages.prototype.getColor = function(color, opacity) {
         opacity = parseFloat(opacity) || 1;
 
@@ -128,15 +128,18 @@
         var color = colorElem.css('background-color');
 
         var rgb = color.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        if(rgb === null){
+            return color;
+        }
         var rgba = "rgba(" + rgb[1] + ", " + rgb[2] + ", " + rgb[3] + ', ' + opacity + ')';
 
         return rgba;
     }
 
     /** @function initSidebar
-    * @description Initialize side bar to open and close
-    * @requires ui/sidebar.js
-    */
+     * @description Initialize side bar to open and close
+     * @requires ui/sidebar.js
+     */
     Pages.prototype.initSidebar = function() {
         $('[data-pages="sidebar"]').each(function() {
             var $sidebar = $(this)
@@ -145,9 +148,9 @@
     }
 
     /** @function initDropDown
-    * @description Initialize Boot-Strap dropdown Menue
-    * @requires bootstrap.js
-    */
+     * @description Initialize Boot-Strap dropdown Menue
+     * @requires bootstrap.js
+     */
     Pages.prototype.initDropDown = function() {
         // adjust width of each dropdown to match content width
         $('.dropdown-default').each(function() {
@@ -167,8 +170,8 @@
     }
 
     /** @function initFormGroupDefault
-    * @description Initialize Pages form group input
-    */
+     * @description Initialize Pages form group input
+     */
     Pages.prototype.initFormGroupDefault = function() {
         $('.form-group.form-group-default').click(function() {
             $(this).find('input').focus();
@@ -195,9 +198,9 @@
     }
 
     /** @function initSlidingTabs
-    * @description Initialize Bootstrap Custom Sliding Tabs
-    * @requires bootstrap.js
-    */
+     * @description Initialize Bootstrap Custom Sliding Tabs
+     * @requires bootstrap.js
+     */
     Pages.prototype.initSlidingTabs = function() {
         // TODO: move this to a separate file
         $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
@@ -217,18 +220,18 @@
         });
     }
     /** @function reponsiveTabs
-    * @description Responsive handlers for Bootstrap Tabs
-    */
+     * @description Responsive handlers for Bootstrap Tabs
+     */
     Pages.prototype.reponsiveTabs = function() {
         //Dropdown FX
-         $('[data-init-reponsive-tabs="dropdownfx"]').each(function() {
+        $('[data-init-reponsive-tabs="dropdownfx"]').each(function() {
             var drop = $(this);
             drop.addClass("hidden-sm hidden-xs");
             var content = '<select class="cs-select cs-skin-slide full-width" data-init-plugin="cs-select">'
             for(var i = 1; i <= drop.children("li").length; i++){
                 var li = drop.children("li:nth-child("+i+")");
                 var selected ="";
-                if(li.hasClass("active")){    
+                if(li.hasClass("active")){
                     selected="selected";
                 }
                 content +='<option value="'+ li.children('a').attr('href')+'" '+selected+'>';
@@ -241,19 +244,19 @@
             $(select).on('change', function (e) {
                 var optionSelected = $("option:selected", this);
                 var valueSelected = this.value;
-                drop.find('a[href="'+valueSelected+'"]').tab('show') 
+                drop.find('a[href="'+valueSelected+'"]').tab('show')
             })
             $(select).wrap('<div class="nav-tab-dropdown cs-wrapper full-width p-t-10 visible-xs visible-sm"></div>');
             new SelectFx(select);
-         });
+        });
 
         //Tab to Accordian
         $.fn.tabCollapse && $('[data-init-reponsive-tabs="collapse"]').tabCollapse();
     }
 
     /** @function initNotificationCenter
-    * @description Initialize Pages Header Notifcation Dropdown
-    */
+     * @description Initialize Pages Header Notifcation Dropdown
+     */
     Pages.prototype.initNotificationCenter = function() {
         $('body').on('click', '.notification-list .dropdown-menu', function(event) {
             event.stopPropagation();
@@ -267,8 +270,8 @@
     }
 
     /** @function initProgressBars
-    * @description Initialize Pages ProgressBars
-    */
+     * @description Initialize Pages ProgressBars
+     */
     Pages.prototype.initProgressBars = function() {
         $(window).on('load ngAfterViewInit', function() {
             // Hack: FF doesn't play SVG animations set as background-image
@@ -277,13 +280,13 @@
     }
 
     /** @function initInputFile
-    * @description Initialize File Input for Bootstrap Buttons and Input groups
-    */
+     * @description Initialize File Input for Bootstrap Buttons and Input groups
+     */
     Pages.prototype.initInputFile = function() {
         $(document).on('change', '.btn-file :file', function() {
             var input = $(this),
-            numFiles = input.get(0).files ? input.get(0).files.length : 1,
-            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
             input.trigger('fileselect', [numFiles, label]);
         });
 
@@ -295,16 +298,16 @@
             } else {
                 $(this).parent().html(log);
             }
-        });        
-    }   
+        });
+    }
     /** @function initHorizontalMenu
-    * @description Initialize Horizontal Dropdown Menu
-    */
+     * @description Initialize Horizontal Dropdown Menu
+     */
     Pages.prototype.initHorizontalMenu = function(){
         $(document).on('click', '.horizontal-menu .bar-inner > ul > li', function(){
             $(this).toggleClass('open').siblings().removeClass('open');
         });
-       
+
         $('.content').on('click', function () {
             $('.horizontal-menu .bar-inner > ul > li').removeClass('open');
         });
@@ -315,44 +318,41 @@
         });
     }
     /** @function initTooltipPlugin
-    * @description Initialize Bootstrap tooltip
-    * @requires bootstrap.js
-    */
+     * @description Initialize Bootstrap tooltip
+     * @requires bootstrap.js
+     */
     Pages.prototype.initTooltipPlugin = function() {
         $.fn.tooltip && $('[data-toggle="tooltip"]').tooltip();
     }
     /** @function initSelect2Plugin
-    * @description Initialize select2 dropdown
-    * @requires select2.js
-    */
+     * @description Initialize select2 dropdown
+     * @requires select2.js
+     */
     Pages.prototype.initSelect2Plugin = function() {
-        console.log(8);
         $.fn.select2 && $('[data-init-plugin="select2"]').each(function() {
-            console.log(1);
             $(this).select2({
-                placeholder: $(this).data('placeholder'),
                 minimumResultsForSearch: ($(this).attr('data-disable-search') == 'true' ? -1 : 1)
-            }).on('select2:opening', function() {
+            }).on('select2-opening', function() {
                 $.fn.scrollbar && $('.select2-results').scrollbar({
                     ignoreMobile: false
                 })
-            });;
+            });
         });
     }
     /** @function initScrollBarPlugin
-    * @description Initialize Global Scroller
-    * @requires jquery-scrollbar.js
-    */
+     * @description Initialize Global Scroller
+     * @requires jquery-scrollbar.js
+     */
     Pages.prototype.initScrollBarPlugin = function() {
         $.fn.scrollbar && $('.scrollable').scrollbar({
             ignoreOverlay: false
         });
     }
     /** @function initListView
-    * @description Initialize iOS like List view plugin
-    * @example <caption>data-init-list-view="ioslist"</caption>
-    * @requires jquery-ioslist.js
-    */
+     * @description Initialize iOS like List view plugin
+     * @example <caption>data-init-list-view="ioslist"</caption>
+     * @requires jquery-ioslist.js
+     */
     Pages.prototype.initListView = function() {
         $.fn.ioslist && $('[data-init-list-view="ioslist"]').ioslist();
         $.fn.scrollbar && $('.list-view-wrapper').scrollbar({
@@ -361,10 +361,10 @@
     }
 
     /** @function initSwitcheryPlugin
-    * @description Initialize iOS like List view plugin
-    * @example <caption>data-init-plugin="switchery"</caption>
-    * @requires Switchery.js
-    */
+     * @description Initialize iOS like List view plugin
+     * @example <caption>data-init-plugin="switchery"</caption>
+     * @requires Switchery.js
+     */
     Pages.prototype.initSwitcheryPlugin = function() {
         // Switchery - ios7 switch
         window.Switchery && $('[data-init-plugin="switchery"]').each(function() {
@@ -377,9 +377,9 @@
     }
 
     /** @function initSelectFxPlugin
-    * @description Initialize iOS like List view plugin
-    * @example <caption>select[data-init-plugin="cs-select"]</caption>
-    */
+     * @description Initialize iOS like List view plugin
+     * @example <caption>select[data-init-plugin="cs-select"]</caption>
+     */
     Pages.prototype.initSelectFxPlugin = function() {
         window.SelectFx && $('select[data-init-plugin="cs-select"]').each(function() {
             var el = $(this).get(0);
@@ -388,17 +388,17 @@
         });
     }
     /** @function initUnveilPlugin
-    * @description To load retina images to img tag
-    */
+     * @description To load retina images to img tag
+     */
     Pages.prototype.initUnveilPlugin = function() {
         // lazy load retina images
         $.fn.unveil && $("img").unveil();
     }
 
     /** @function initValidatorPlugin
-    * @description Inintialize and Overide exsisting jquery-validate methods.
-    * @requires jquery-validate.js
-    */
+     * @description Inintialize and Overide exsisting jquery-validate methods.
+     * @requires jquery-validate.js
+     */
     Pages.prototype.initValidatorPlugin = function() {
         /**
          * Open the socket.
@@ -463,8 +463,8 @@
     }
 
     /** @function init
-    * @description Inintialize all core components.
-    */
+     * @description Inintialize all core components.
+     */
     Pages.prototype.init = function() {
         // init layout
         this.initSidebar();
@@ -489,7 +489,7 @@
 
     $.Pages = new Pages();
     $.Pages.Constructor = Pages;
-    
+
 })(window.jQuery);
 
 /**
@@ -498,7 +498,7 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * Copyright 2014, Codrops
  * http://www.codrops.com
  */
@@ -571,11 +571,11 @@
      * jQuery after() in pure JS
      */
     function insertAfter(newNode, referenceNode) {
-            referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-        }
-        /**
-         * SelectFx options
-         */
+        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+    }
+    /**
+     * SelectFx options
+     */
     SelectFx.prototype.options = {
         // if true all the links will open in a new tab.
         // if we want to be redirected when we click an option, we need to define a data-link attr on the option of the native select element
@@ -734,12 +734,12 @@
                     ev.preventDefault();
                     self._navigateOpts('prev');
                     break;
-                    // down key
+                // down key
                 case 40:
                     ev.preventDefault();
                     self._navigateOpts('next');
                     break;
-                    // space key
+                // space key
                 case 32:
                     ev.preventDefault();
                     if (self._isOpen() && typeof self.preSelCurrent != 'undefined' && self.preSelCurrent !== -1) {
@@ -747,7 +747,7 @@
                     }
                     self._toggleSelect();
                     break;
-                    // enter key
+                // enter key
                 case 13:
                     ev.preventDefault();
                     if (self._isOpen() && typeof self.preSelCurrent != 'undefined' && self.preSelCurrent !== -1) {
@@ -755,7 +755,7 @@
                         self._toggleSelect();
                     }
                     break;
-                    // esc key
+                // esc key
                 case 27:
                     ev.preventDefault();
                     if (self._isOpen()) {
@@ -967,17 +967,17 @@
  * ============================================================ */
 
 (function($) {
-  'use strict';
-  //To Open Chat When Clicked
-  $('[data-chat-input]').on('keypress',function(e){
-    if(e.which == 13) {
-       var el = $(this).attr('data-chat-conversation');
-       $(el).append('<div class="message clearfix">'+
-        '<div class="chat-bubble from-me">'+$(this).val()+
-        '</div></div>');
-       $(this).val('');
-    }
-  });
+    'use strict';
+    //To Open Chat When Clicked
+    $('[data-chat-input]').on('keypress',function(e){
+        if(e.which == 13) {
+            var el = $(this).attr('data-chat-conversation');
+            $(el).append('<div class="message clearfix">'+
+                '<div class="chat-bubble from-me">'+$(this).val()+
+                '</div></div>');
+            $(this).val('');
+        }
+    });
 
 })(window.jQuery);
 /* ============================================================
@@ -1215,7 +1215,7 @@
 
         self.notification.append(self.alert);
 
-        // bind to Bootstrap closed event for alerts 
+        // bind to Bootstrap closed event for alerts
         self.alert.on('closed.bs.alert', function() {
             self.notification.remove();
             self.options.onClosed();
@@ -1226,7 +1226,7 @@
     };
 
     Notification.VERSION = "1.0.0";
-    
+
     Notification.prototype.show = function() {
 
         // TODO: add fadeOut animation on show as option
@@ -1283,7 +1283,7 @@
         var icon = this.$element.find(this.options.collapseButton + ' > i');
         var heading = this.$element.find('.panel-heading');
 
-        this.$body.stop().slideToggle(/*"fast"*/);
+        this.$body.stop().slideToggle("fast");
 
         if (this.$element.hasClass('panel-collapsed')) {
             this.$element.removeClass('panel-collapsed');
@@ -1401,7 +1401,7 @@
                 style: 'bar',
                 message: error,
                 position: 'top',
-                timeout: 0,
+                timeout: 3000,
                 type: 'danger',
                 onShown: function() {
                     _this.$loader.find('> div').fadeOut()
@@ -1525,7 +1525,7 @@
                 $(data.toggleView).show();
             }
             else{
-                 toView = el.last();
+                toView = el.last();
             }
             el.toggleClass(data.viewAnimation);
             self.options.onNavigate(toView, data.viewAnimation);
@@ -1582,8 +1582,8 @@
         $(this.options.deleteNoteButton).click(function(e) {
             e.preventDefault();
             $(this).toggleClass('selected');
-            $(_this.options.notes).find('.list > ul > li .checkbox').fadeToggle(/*"fast"*/);
-            $(_this.options.deleteNoteConfirmButton).fadeToggle(/*"fast"*/).removeClass('hide');
+            $(_this.options.notes).find('.list > ul > li .checkbox').fadeToggle("fast");
+            $(_this.options.deleteNoteConfirmButton).fadeToggle("fast").removeClass('hide');
         });
         $(this.options.newNoteButton).click(function(e) {
             e.preventDefault();
@@ -1767,7 +1767,7 @@
 
     // PARALLAX NO CONFLICT
     // ====================
-    
+
     $.fn.parallax.noConflict = function() {
         $.fn.parallax = old;
         return this;
@@ -1793,66 +1793,66 @@
     });
 
 })(window.jQuery);
- /* ============================================================
-  * Pages Sidebar
-  * ============================================================ */
+/* ============================================================
+ * Pages Sidebar
+ * ============================================================ */
 
- (function($) {
+(function($) {
     'use strict';
-     // SIDEBAR CLASS DEFINITION
-     // ======================
+    // SIDEBAR CLASS DEFINITION
+    // ======================
 
     var Sidebar = function(element, options) {
-         this.$element = $(element);
-         this.$body = $('body');
-         this.options = $.extend(true, {}, $.fn.sidebar.defaults, options);
+        this.$element = $(element);
+        this.$body = $('body');
+        this.options = $.extend(true, {}, $.fn.sidebar.defaults, options);
 
-         this.bezierEasing = [.05, .74, .27, .99];
-         this.cssAnimation = true;
-         this.css3d = true;
+        this.bezierEasing = [.05, .74, .27, .99];
+        this.cssAnimation = true;
+        this.css3d = true;
 
-         this.sideBarWidth = 280;
-         this.sideBarWidthCondensed = 280 - 70;
-
-         
-
-         this.$sidebarMenu = this.$element.find('.sidebar-menu > ul');
-         this.$pageContainer = $(this.options.pageContainer);
-         
-
-         if (!this.$sidebarMenu.length) return;
-
-         // apply perfectScrollbar plugin only for desktops
-         ($.Pages.getUserAgent() == 'desktop') && this.$sidebarMenu.scrollbar({
-             ignoreOverlay: false
-         });
+        this.sideBarWidth = 280;
+        this.sideBarWidthCondensed = 280 - 70;
 
 
-         if (!Modernizr.csstransitions)
-             this.cssAnimation = false;
-         if (!Modernizr.csstransforms3d)
-             this.css3d = false;
 
-         // Bind events
-         // Toggle sub menus
-         // In Angular Binding is done using a pg-sidebar directive
-         $(document).on('click', '.sidebar-menu a', function(e) {
+        this.$sidebarMenu = this.$element.find('.sidebar-menu > ul');
+        this.$pageContainer = $(this.options.pageContainer);
 
-             if ($(this).parent().children('.sub-menu') === false) {
-                 return;
-             }
-             var el = $(this);
-             var parent = $(this).parent().parent();
-             var li = $(this).parent();
-             var sub = $(this).parent().children('.sub-menu');
 
-             if(li.hasClass("open active")){
+        if (!this.$sidebarMenu.length) return;
+
+        // apply perfectScrollbar plugin only for desktops
+        ($.Pages.getUserAgent() == 'desktop') && this.$sidebarMenu.scrollbar({
+            ignoreOverlay: false
+        });
+
+
+        if (!Modernizr.csstransitions)
+            this.cssAnimation = false;
+        if (!Modernizr.csstransforms3d)
+            this.css3d = false;
+
+        // Bind events
+        // Toggle sub menus
+        // In Angular Binding is done using a pg-sidebar directive
+        $(document).on('click', '.sidebar-menu a', function(e) {
+
+            if ($(this).parent().children('.sub-menu') === false) {
+                return;
+            }
+            var el = $(this);
+            var parent = $(this).parent().parent();
+            var li = $(this).parent();
+            var sub = $(this).parent().children('.sub-menu');
+
+            if(li.hasClass("open active")){
                 el.children('.arrow').removeClass("open active");
                 sub.slideUp(200, function() {
-                    li.removeClass("open active"); 
+                    li.removeClass("open active");
                 });
-                
-             }else{
+
+            }else{
                 parent.children('li.open').children('.sub-menu').slideUp(200);
                 parent.children('li.open').children('a').children('.arrow').removeClass('open active');
                 parent.children('li.open').removeClass("open active");
@@ -1861,185 +1861,185 @@
                     li.addClass("open active");
 
                 });
-             }
-             //e.preventDefault();
-         });
+            }
+            //e.preventDefault();
+        });
 
-         // Toggle sidebar
-         $('.sidebar-slide-toggle').on('click touchend', function(e) {
-             e.preventDefault();
-             $(this).toggleClass('active');
-             var el = $(this).attr('data-pages-toggle');
-             if (el != null) {
-                 $(el).toggleClass('show');
-             }
-         });
+        // Toggle sidebar
+        $('.sidebar-slide-toggle').on('click touchend', function(e) {
+            e.preventDefault();
+            $(this).toggleClass('active');
+            var el = $(this).attr('data-pages-toggle');
+            if (el != null) {
+                $(el).toggleClass('show');
+            }
+        });
 
-         var _this = this;
+        var _this = this;
 
-         function sidebarMouseEnter(e) {
+        function sidebarMouseEnter(e) {
             var _sideBarWidthCondensed = _this.$body.hasClass("rtl") ? -_this.sideBarWidthCondensed : _this.sideBarWidthCondensed;
-           
-             var menuOpenCSS = (this.css3d == true ? 'translate3d(' + _sideBarWidthCondensed + 'px, 0,0)' : 'translate(' + _sideBarWidthCondensed + 'px, 0)');
 
-             if ($.Pages.isVisibleSm() || $.Pages.isVisibleXs()) {
-                 return false
-             }
-             if ($('.close-sidebar').data('clicked')) {
-                 return;
-             }
-             if (_this.$body.hasClass('menu-pin'))
-                 return;
-             if (_this.cssAnimation) {
-                 _this.$element.css({
-                     'transform': menuOpenCSS
-                 });
-                 _this.$body.addClass('sidebar-visible');
-             } else {
-                 _this.$element.stop().animate({
-                     left: '0px'
-                 }, 400, $.bez(_this.bezierEasing), function() {
-                     _this.$body.addClass('sidebar-visible');
-                 });
-             }
-         }
+            var menuOpenCSS = (this.css3d == true ? 'translate3d(' + _sideBarWidthCondensed + 'px, 0,0)' : 'translate(' + _sideBarWidthCondensed + 'px, 0)');
 
-         function sidebarMouseLeave(e) {
+            if ($.Pages.isVisibleSm() || $.Pages.isVisibleXs()) {
+                return false
+            }
+            if ($('.close-sidebar').data('clicked')) {
+                return;
+            }
+            if (_this.$body.hasClass('menu-pin'))
+                return;
+            if (_this.cssAnimation) {
+                _this.$element.css({
+                    'transform': menuOpenCSS
+                });
+                _this.$body.addClass('sidebar-visible');
+            } else {
+                _this.$element.stop().animate({
+                    left: '0px'
+                }, 400, $.bez(_this.bezierEasing), function() {
+                    _this.$body.addClass('sidebar-visible');
+                });
+            }
+        }
+
+        function sidebarMouseLeave(e) {
             var menuClosedCSS = (_this.css3d == true ? 'translate3d(0, 0,0)' : 'translate(0, 0)');
 
-             if ($.Pages.isVisibleSm() || $.Pages.isVisibleXs()) {
-                 return false
-             }
-             if (typeof e != 'undefined') {
-                 var target = $(e.target);
-                 if (target.parent('.page-sidebar').length) {
-                     return;
-                 }
-             }
-             if (_this.$body.hasClass('menu-pin'))
-                 return;
+            if ($.Pages.isVisibleSm() || $.Pages.isVisibleXs()) {
+                return false
+            }
+            if (typeof e != 'undefined') {
+                var target = $(e.target);
+                if (target.parent('.page-sidebar').length) {
+                    return;
+                }
+            }
+            if (_this.$body.hasClass('menu-pin'))
+                return;
 
-             if ($('.sidebar-overlay-slide').hasClass('show')) {
-                 $('.sidebar-overlay-slide').removeClass('show')
-                 $("[data-pages-toggle]").removeClass('active')
+            if ($('.sidebar-overlay-slide').hasClass('show')) {
+                $('.sidebar-overlay-slide').removeClass('show');
+                $("[data-pages-toggle]").removeClass('active');
 
-             }
+            }
 
-             if (_this.cssAnimation) {
-                 _this.$element.css({
-                     'transform': menuClosedCSS
-                 });
-                 _this.$body.removeClass('sidebar-visible');
-             } else {
+            if (_this.cssAnimation) {
+                _this.$element.css({
+                    'transform': menuClosedCSS
+                });
+                _this.$body.removeClass('sidebar-visible');
+            } else {
 
-                 _this.$element.stop().animate({
-                     left: '-' + _this.sideBarWidthCondensed + 'px'
-                 }, 400, $.bez(_this.bezierEasing), function() {
+                _this.$element.stop().animate({
+                    left: '-' + _this.sideBarWidthCondensed + 'px'
+                }, 400, $.bez(_this.bezierEasing), function() {
 
-                     _this.$body.removeClass('sidebar-visible')
-                     setTimeout(function() {
-                         $('.close-sidebar').data({
-                             clicked: false
-                         });
-                     }, 100);
-                 });
-             }
-         }
-
-
-         this.$element.bind('mouseenter mouseleave', sidebarMouseEnter);
-         this.$pageContainer.bind('mouseover', sidebarMouseLeave);
-
-     }
+                    _this.$body.removeClass('sidebar-visible')
+                    setTimeout(function() {
+                        $('.close-sidebar').data({
+                            clicked: false
+                        });
+                    }, 100);
+                });
+            }
+        }
 
 
-     // Toggle sidebar for mobile view   
-     Sidebar.prototype.toggleSidebar = function(toggle) {
-         var timer;
-         var bodyColor = $('body').css('background-color');
-         $('.page-container').css('background-color', bodyColor);
-         if (this.$body.hasClass('sidebar-open')) {
-             this.$body.removeClass('sidebar-open');
-             timer = setTimeout(function() {
-                 this.$element.removeClass('visible');
-             }.bind(this), 400);
-         } else {
-             clearTimeout(timer);
-             this.$element.addClass('visible');
-             setTimeout(function() {
-                 this.$body.addClass('sidebar-open');
-             }.bind(this), 10);
-             setTimeout(function(){
+        this.$element.bind('mouseenter mouseleave', sidebarMouseEnter);
+        this.$pageContainer.bind('mouseover', sidebarMouseLeave);
+
+    }
+
+
+    // Toggle sidebar for mobile view
+    Sidebar.prototype.toggleSidebar = function(toggle) {
+        var timer;
+        var bodyColor = $('body').css('background-color');
+        $('.page-container').css('background-color', bodyColor);
+        if (this.$body.hasClass('sidebar-open')) {
+            this.$body.removeClass('sidebar-open');
+            timer = setTimeout(function() {
+                this.$element.removeClass('visible');
+            }.bind(this), 400);
+        } else {
+            clearTimeout(timer);
+            this.$element.addClass('visible');
+            setTimeout(function() {
+                this.$body.addClass('sidebar-open');
+            }.bind(this), 10);
+            setTimeout(function(){
                 // remove background color
                 $('.page-container').css({'background-color': ''});
-             },1000);
+            },1000);
 
-         }
+        }
 
-     }
+    }
 
-     Sidebar.prototype.togglePinSidebar = function(toggle) {
-         if (toggle == 'hide') {
-             this.$body.removeClass('menu-pin');
-         } else if (toggle == 'show') {
-             this.$body.addClass('menu-pin');
-         } else {
-             this.$body.toggleClass('menu-pin');
-         }
+    Sidebar.prototype.togglePinSidebar = function(toggle) {
+        if (toggle == 'hide') {
+            this.$body.removeClass('menu-pin');
+        } else if (toggle == 'show') {
+            this.$body.addClass('menu-pin');
+        } else {
+            this.$body.toggleClass('menu-pin');
+        }
 
-     }
-
-
-     // SIDEBAR PLUGIN DEFINITION
-     // =======================
-     function Plugin(option) {
-         return this.each(function() {
-             var $this = $(this);
-             var data = $this.data('pg.sidebar');
-             var options = typeof option == 'object' && option;
-
-             if (!data) $this.data('pg.sidebar', (data = new Sidebar(this, options)));
-             if (typeof option == 'string') data[option]();
-         })
-     }
-
-     var old = $.fn.sidebar;
-
-     $.fn.sidebar = Plugin;
-     $.fn.sidebar.Constructor = Sidebar;
+    }
 
 
-     $.fn.sidebar.defaults = {
-         pageContainer: '.page-container'
-     }
+    // SIDEBAR PLUGIN DEFINITION
+    // =======================
+    function Plugin(option) {
+        return this.each(function() {
+            var $this = $(this);
+            var data = $this.data('pg.sidebar');
+            var options = typeof option == 'object' && option;
 
-     // SIDEBAR PROGRESS NO CONFLICT
-     // ====================
+            if (!data) $this.data('pg.sidebar', (data = new Sidebar(this, options)));
+            if (typeof option == 'string') data[option]();
+        })
+    }
 
-     $.fn.sidebar.noConflict = function() {
-         $.fn.sidebar = old;
-         return this;
-     }
+    var old = $.fn.sidebar;
 
-     // SIDEBAR PROGRESS DATA API
-     //===================
+    $.fn.sidebar = Plugin;
+    $.fn.sidebar.Constructor = Sidebar;
 
-     $(document).on('click.pg.sidebar.data-api', '[data-toggle-pin="sidebar"]', function(e) {
-         e.preventDefault();
-         var $this = $(this);
-         var $target = $('[data-pages="sidebar"]');
-         $target.data('pg.sidebar').togglePinSidebar();
-         return false;
-     })
-     $(document).on('click.pg.sidebar.data-api touchstart', '[data-toggle="sidebar"]', function(e) {
-         e.preventDefault();
-         var $this = $(this);
-         var $target = $('[data-pages="sidebar"]');
-         $target.data('pg.sidebar').toggleSidebar();
-         return false
-     })
 
- })(window.jQuery);
+    $.fn.sidebar.defaults = {
+        pageContainer: '.page-container'
+    }
+
+    // SIDEBAR PROGRESS NO CONFLICT
+    // ====================
+
+    $.fn.sidebar.noConflict = function() {
+        $.fn.sidebar = old;
+        return this;
+    }
+
+    // SIDEBAR PROGRESS DATA API
+    //===================
+
+    $(document).on('click.pg.sidebar.data-api', '[data-toggle-pin="sidebar"]', function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $target = $('[data-pages="sidebar"]');
+        $target.data('pg.sidebar').togglePinSidebar();
+        return false;
+    })
+    $(document).on('click.pg.sidebar.data-api touchstart', '[data-toggle="sidebar"]', function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $target = $('[data-pages="sidebar"]');
+        $target.data('pg.sidebar').toggleSidebar();
+        return false
+    })
+
+})(window.jQuery);
 /* ============================================================
  * Pages Search overlay
  * ============================================================ */
@@ -2130,7 +2130,7 @@
         var _this = this;
         if (action == 'show') {
             this.$element.removeClass("hide");
-            this.$element.fadeIn(/*"fast"*/);
+            this.$element.fadeIn("fast");
             if (!this.$searchField.is(':focus')) {
                 this.$searchField.val(key);
                 setTimeout(function() {
@@ -2145,8 +2145,7 @@
             this.$brand.toggleClass('invisible');
             $(document).off('keypress.pg.search');
         } else {
-            this.$element.hide().addClass("closed");
-            //this.$element.fadeOut(/*"fast"*/).addClass("closed");
+            this.$element.fadeOut("fast").addClass("closed");
             this.$searchField.val('').blur();
             setTimeout(function() {
                 if ((this.$element).is(':visible')) {

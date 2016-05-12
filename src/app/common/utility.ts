@@ -3,8 +3,8 @@
  * 
  */
 
-import {Injectable} from 'angular2/core';
-import {JwtHelper} from './angular2-jwt';
+import {Injectable} from '@angular/core';
+
 
 @Injectable()
 export class Utility {

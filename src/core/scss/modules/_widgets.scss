@@ -16,12 +16,13 @@
     bottom: 0;
     position: absolute;
     z-index: 0;
-    opacity: .69;
+    opacity: .96;
+    //opacity: .69;
   }
 }
 .widget-1 {
   &:after {
-    background-image: url("#{$assets-url}/img/dashboard/shutterstock_214815883.jpg");
+    background-image: url("#{$assets-url}/img/dashboard/widget1.jpg");
     background-size: cover;
     content: " ";
     left: 0;
@@ -30,7 +31,8 @@
     bottom: 0;
     position: absolute;
     z-index: 0;
-    opacity: .69;
+    //opacity: .69;
+    opacity: 1;
   }
   &:before {
     background-image: url('#{$base-img-url}/linear_gradient.png');
